@@ -1,11 +1,14 @@
-﻿namespace XBMControl
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace XBMControl
 {
     partial class NavigatorF1
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -29,7 +32,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NavigatorF1));
+            var resources = new System.ComponentModel.ComponentResourceManager(typeof(NavigatorF1));
             this.bRight = new System.Windows.Forms.Button();
             this.bLeft = new System.Windows.Forms.Button();
             this.bUp = new System.Windows.Forms.Button();
@@ -62,9 +65,9 @@
             this.button0 = new System.Windows.Forms.Button();
             this.pToolbar.SuspendLayout();
             this.SuspendLayout();
-            // 
+            //
             // bRight
-            // 
+            //
             this.bRight.BackColor = System.Drawing.Color.DimGray;
             this.bRight.BackgroundImage = global::XBMControl.Properties.Resources.navigator_right;
             this.bRight.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -82,9 +85,9 @@
             this.navigatorToolTip.SetToolTip(this.bRight, "Move Right");
             this.bRight.UseVisualStyleBackColor = false;
             this.bRight.Click += new System.EventHandler(this.bRight_Click);
-            // 
+            //
             // bLeft
-            // 
+            //
             this.bLeft.BackColor = System.Drawing.Color.Transparent;
             this.bLeft.BackgroundImage = global::XBMControl.Properties.Resources.navigator_left;
             this.bLeft.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -100,9 +103,9 @@
             this.navigatorToolTip.SetToolTip(this.bLeft, "Move Left");
             this.bLeft.UseVisualStyleBackColor = false;
             this.bLeft.Click += new System.EventHandler(this.bLeft_Click);
-            // 
+            //
             // bUp
-            // 
+            //
             this.bUp.BackColor = System.Drawing.Color.Transparent;
             this.bUp.BackgroundImage = global::XBMControl.Properties.Resources.navigator_up;
             this.bUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -118,9 +121,9 @@
             this.navigatorToolTip.SetToolTip(this.bUp, "Move Up");
             this.bUp.UseVisualStyleBackColor = false;
             this.bUp.Click += new System.EventHandler(this.bUp_Click);
-            // 
+            //
             // bDown
-            // 
+            //
             this.bDown.AllowDrop = true;
             this.bDown.BackColor = System.Drawing.Color.Transparent;
             this.bDown.BackgroundImage = global::XBMControl.Properties.Resources.navigator_down;
@@ -137,9 +140,9 @@
             this.navigatorToolTip.SetToolTip(this.bDown, "Move Down");
             this.bDown.UseVisualStyleBackColor = false;
             this.bDown.Click += new System.EventHandler(this.bDown_Click);
-            // 
+            //
             // bSelect
-            // 
+            //
             this.bSelect.BackColor = System.Drawing.Color.Transparent;
             this.bSelect.BackgroundImage = global::XBMControl.Properties.Resources.navigator_select;
             this.bSelect.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -155,9 +158,9 @@
             this.navigatorToolTip.SetToolTip(this.bSelect, "Select");
             this.bSelect.UseVisualStyleBackColor = false;
             this.bSelect.Click += new System.EventHandler(this.bSelect_Click);
-            // 
+            //
             // bUndo
-            // 
+            //
             this.bUndo.BackColor = System.Drawing.Color.Transparent;
             this.bUndo.BackgroundImage = global::XBMControl.Properties.Resources.navigator_back;
             this.bUndo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -173,9 +176,9 @@
             this.navigatorToolTip.SetToolTip(this.bUndo, "XBMC Back Menu");
             this.bUndo.UseVisualStyleBackColor = false;
             this.bUndo.Click += new System.EventHandler(this.bUndo_Click_1);
-            // 
+            //
             // bOptions
-            // 
+            //
             this.bOptions.BackColor = System.Drawing.Color.Transparent;
             this.bOptions.BackgroundImage = global::XBMControl.Properties.Resources.navigator_options;
             this.bOptions.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -189,9 +192,9 @@
             this.bOptions.TabIndex = 16;
             this.bOptions.UseVisualStyleBackColor = false;
             this.bOptions.Click += new System.EventHandler(this.bOptions_Click);
-            // 
+            //
             // bHome
-            // 
+            //
             this.bHome.BackgroundImage = global::XBMControl.Properties.Resources.navigator_home;
             this.bHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bHome.FlatAppearance.BorderSize = 0;
@@ -205,9 +208,9 @@
             this.navigatorToolTip.SetToolTip(this.bHome, "XBMC Main Menu");
             this.bHome.UseVisualStyleBackColor = true;
             this.bHome.Click += new System.EventHandler(this.bHome_Click);
-            // 
+            //
             // bVolDown
-            // 
+            //
             this.bVolDown.BackgroundImage = global::XBMControl.Properties.Resources.navigator_vol_down;
             this.bVolDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bVolDown.FlatAppearance.BorderSize = 0;
@@ -221,9 +224,9 @@
             this.navigatorToolTip.SetToolTip(this.bVolDown, "Volume Down");
             this.bVolDown.UseVisualStyleBackColor = true;
             this.bVolDown.Click += new System.EventHandler(this.bVolDown_Click);
-            // 
+            //
             // bVolUp
-            // 
+            //
             this.bVolUp.BackgroundImage = global::XBMControl.Properties.Resources.navigator_vol_up;
             this.bVolUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bVolUp.FlatAppearance.BorderSize = 0;
@@ -237,9 +240,9 @@
             this.navigatorToolTip.SetToolTip(this.bVolUp, "Volume Up");
             this.bVolUp.UseVisualStyleBackColor = true;
             this.bVolUp.Click += new System.EventHandler(this.bVolUp_Click);
-            // 
+            //
             // bRewind
-            // 
+            //
             this.bRewind.BackgroundImage = global::XBMControl.Properties.Resources.navigator_rewind;
             this.bRewind.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bRewind.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
@@ -256,9 +259,9 @@
             this.navigatorToolTip.SetToolTip(this.bRewind, "Rewind");
             this.bRewind.UseVisualStyleBackColor = true;
             this.bRewind.Click += new System.EventHandler(this.bRewind_Click);
-            // 
+            //
             // bStop
-            // 
+            //
             this.bStop.BackgroundImage = global::XBMControl.Properties.Resources.navigator_stop;
             this.bStop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bStop.FlatAppearance.BorderSize = 0;
@@ -272,9 +275,9 @@
             this.navigatorToolTip.SetToolTip(this.bStop, "Stop");
             this.bStop.UseVisualStyleBackColor = true;
             this.bStop.Click += new System.EventHandler(this.bStop_Click);
-            // 
+            //
             // bPlayPause
-            // 
+            //
             this.bPlayPause.BackgroundImage = global::XBMControl.Properties.Resources.navigator_play_pause;
             this.bPlayPause.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bPlayPause.FlatAppearance.BorderSize = 0;
@@ -288,9 +291,9 @@
             this.navigatorToolTip.SetToolTip(this.bPlayPause, "Play/Pause");
             this.bPlayPause.UseVisualStyleBackColor = true;
             this.bPlayPause.Click += new System.EventHandler(this.bPlayPause_Click);
-            // 
+            //
             // bForward
-            // 
+            //
             this.bForward.BackgroundImage = global::XBMControl.Properties.Resources.navigator_forward;
             this.bForward.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bForward.FlatAppearance.BorderSize = 0;
@@ -304,9 +307,9 @@
             this.navigatorToolTip.SetToolTip(this.bForward, "Fast Foward");
             this.bForward.UseVisualStyleBackColor = true;
             this.bForward.Click += new System.EventHandler(this.bForward_Click);
-            // 
+            //
             // pToolbar
-            // 
+            //
             this.pToolbar.BackColor = System.Drawing.Color.Transparent;
             this.pToolbar.Controls.Add(this.bClose);
             this.pToolbar.Controls.Add(this.lMainTitle);
@@ -317,9 +320,9 @@
             this.pToolbar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pToolbar_MouseMove);
             this.pToolbar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pToolbar_MouseDown);
             this.pToolbar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pToolbar_MouseUp);
-            // 
+            //
             // bClose
-            // 
+            //
             this.bClose.BackColor = System.Drawing.Color.DimGray;
             this.bClose.BackgroundImage = global::XBMControl.Properties.Resources.button_exit;
             this.bClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -338,9 +341,9 @@
             this.bClose.MouseDown += new System.Windows.Forms.MouseEventHandler(this.bClose_MouseDown);
             this.bClose.MouseUp += new System.Windows.Forms.MouseEventHandler(this.bClose_MouseUp);
             this.bClose.MouseEnter += new System.EventHandler(this.bClose_MouseEnter);
-            // 
+            //
             // lMainTitle
-            // 
+            //
             this.lMainTitle.AutoSize = true;
             this.lMainTitle.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lMainTitle.Location = new System.Drawing.Point(57, 2);
@@ -352,9 +355,9 @@
             this.lMainTitle.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pToolbar_MouseMove);
             this.lMainTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pToolbar_MouseDown);
             this.lMainTitle.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pToolbar_MouseUp);
-            // 
+            //
             // bPrevious
-            // 
+            //
             this.bPrevious.BackgroundImage = global::XBMControl.Properties.Resources.navigator_previous;
             this.bPrevious.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bPrevious.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
@@ -371,9 +374,9 @@
             this.navigatorToolTip.SetToolTip(this.bPrevious, "Previous");
             this.bPrevious.UseVisualStyleBackColor = true;
             this.bPrevious.Click += new System.EventHandler(this.bPrevious_Click);
-            // 
+            //
             // bNext
-            // 
+            //
             this.bNext.BackgroundImage = global::XBMControl.Properties.Resources.navigator_next;
             this.bNext.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bNext.FlatAppearance.BorderSize = 0;
@@ -387,9 +390,9 @@
             this.navigatorToolTip.SetToolTip(this.bNext, "Next");
             this.bNext.UseVisualStyleBackColor = true;
             this.bNext.Click += new System.EventHandler(this.bNext_Click);
-            // 
+            //
             // button1
-            // 
+            //
             this.button1.BackgroundImage = global::XBMControl.Properties.Resources.navigator_numpad_1;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button1.FlatAppearance.BorderSize = 0;
@@ -403,9 +406,9 @@
             this.navigatorToolTip.SetToolTip(this.button1, "Volume Down");
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
+            //
             // button2
-            // 
+            //
             this.button2.BackgroundImage = global::XBMControl.Properties.Resources.navigator_numpad_2;
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button2.FlatAppearance.BorderSize = 0;
@@ -419,9 +422,9 @@
             this.navigatorToolTip.SetToolTip(this.button2, "Volume Down");
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
+            //
             // button3
-            // 
+            //
             this.button3.BackgroundImage = global::XBMControl.Properties.Resources.navigator_numpad_3;
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button3.FlatAppearance.BorderSize = 0;
@@ -435,9 +438,9 @@
             this.navigatorToolTip.SetToolTip(this.button3, "Volume Down");
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
+            //
             // button4
-            // 
+            //
             this.button4.BackgroundImage = global::XBMControl.Properties.Resources.navigator_numpad_4;
             this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button4.FlatAppearance.BorderSize = 0;
@@ -451,9 +454,9 @@
             this.navigatorToolTip.SetToolTip(this.button4, "Volume Down");
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
+            //
             // button5
-            // 
+            //
             this.button5.BackgroundImage = global::XBMControl.Properties.Resources.navigator_numpad_5;
             this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button5.FlatAppearance.BorderSize = 0;
@@ -467,9 +470,9 @@
             this.navigatorToolTip.SetToolTip(this.button5, "Volume Down");
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
+            //
             // button6
-            // 
+            //
             this.button6.BackgroundImage = global::XBMControl.Properties.Resources.navigator_numpad_6;
             this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button6.FlatAppearance.BorderSize = 0;
@@ -483,9 +486,9 @@
             this.navigatorToolTip.SetToolTip(this.button6, "Volume Down");
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
+            //
             // button7
-            // 
+            //
             this.button7.BackgroundImage = global::XBMControl.Properties.Resources.navigator_numpad_7;
             this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button7.FlatAppearance.BorderSize = 0;
@@ -499,9 +502,9 @@
             this.navigatorToolTip.SetToolTip(this.button7, "Volume Down");
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
-            // 
+            //
             // button8
-            // 
+            //
             this.button8.BackgroundImage = global::XBMControl.Properties.Resources.navigator_numpad_8;
             this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button8.FlatAppearance.BorderSize = 0;
@@ -515,9 +518,9 @@
             this.navigatorToolTip.SetToolTip(this.button8, "Volume Down");
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
-            // 
+            //
             // button9
-            // 
+            //
             this.button9.BackgroundImage = global::XBMControl.Properties.Resources.navigator_numpad_9;
             this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button9.FlatAppearance.BorderSize = 0;
@@ -531,9 +534,9 @@
             this.navigatorToolTip.SetToolTip(this.button9, "Volume Down");
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.button9_Click);
-            // 
+            //
             // button0
-            // 
+            //
             this.button0.BackgroundImage = global::XBMControl.Properties.Resources.navigator_numpad_0;
             this.button0.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button0.FlatAppearance.BorderSize = 0;
@@ -547,9 +550,9 @@
             this.navigatorToolTip.SetToolTip(this.button0, "Volume Down");
             this.button0.UseVisualStyleBackColor = true;
             this.button0.Click += new System.EventHandler(this.button0_Click);
-            // 
+            //
             // NavigatorF1
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
@@ -601,35 +604,35 @@
 
         #endregion
 
-        private System.Windows.Forms.Button bRight;
-        private System.Windows.Forms.Button bLeft;
-        private System.Windows.Forms.Button bUp;
-        private System.Windows.Forms.Button bDown;
-        private System.Windows.Forms.Button bSelect;
-        private System.Windows.Forms.Button bUndo;
-        private System.Windows.Forms.Button bOptions;
-        private System.Windows.Forms.Button bHome;
-        private System.Windows.Forms.Button bVolDown;
-        private System.Windows.Forms.Button bVolUp;
-        private System.Windows.Forms.Button bRewind;
-        private System.Windows.Forms.Button bStop;
-        private System.Windows.Forms.Button bPlayPause;
-        private System.Windows.Forms.Button bForward;
-        private System.Windows.Forms.Panel pToolbar;
-        private System.Windows.Forms.Button bClose;
-        private System.Windows.Forms.Label lMainTitle;
-        private System.Windows.Forms.Button bPrevious;
-        private System.Windows.Forms.Button bNext;
-        private System.Windows.Forms.ToolTip navigatorToolTip;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button0;
+        private Button bRight;
+        private Button bLeft;
+        private Button bUp;
+        private Button bDown;
+        private Button bSelect;
+        private Button bUndo;
+        private Button bOptions;
+        private Button bHome;
+        private Button bVolDown;
+        private Button bVolUp;
+        private Button bRewind;
+        private Button bStop;
+        private Button bPlayPause;
+        private Button bForward;
+        private Panel pToolbar;
+        private Button bClose;
+        private Label lMainTitle;
+        private Button bPrevious;
+        private Button bNext;
+        private ToolTip navigatorToolTip;
+        private Button button1;
+        private Button button2;
+        private Button button3;
+        private Button button4;
+        private Button button5;
+        private Button button6;
+        private Button button7;
+        private Button button8;
+        private Button button9;
+        private Button button0;
     }
 }

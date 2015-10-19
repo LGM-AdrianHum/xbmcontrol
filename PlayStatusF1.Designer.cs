@@ -1,11 +1,14 @@
-﻿namespace XBMControl.PlayStatusForm
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace XBMControl.PlayStatusForm
 {
     partial class PlayStatusF1
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -39,9 +42,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbThumbnail)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
+            //
             // pbThumbnail
-            // 
+            //
             this.pbThumbnail.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pbThumbnail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbThumbnail.Location = new System.Drawing.Point(0, 0);
@@ -50,13 +53,13 @@
             this.pbThumbnail.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbThumbnail.TabIndex = 0;
             this.pbThumbnail.TabStop = false;
-            // 
+            //
             // hideFormTimer
-            // 
+            //
             this.hideFormTimer.Tick += new System.EventHandler(this.hideFormTimer_Tick);
-            // 
+            //
             // panel1
-            // 
+            //
             this.panel1.Controls.Add(this.lTitle);
             this.panel1.Controls.Add(this.lArtist);
             this.panel1.Controls.Add(this.lAlbum);
@@ -65,9 +68,9 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(255, 55);
             this.panel1.TabIndex = 1;
-            // 
+            //
             // lTitle
-            // 
+            //
             this.lTitle.BackColor = System.Drawing.Color.Transparent;
             this.lTitle.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lTitle.ForeColor = System.Drawing.Color.Red;
@@ -75,9 +78,9 @@
             this.lTitle.Name = "lTitle";
             this.lTitle.Size = new System.Drawing.Size(247, 16);
             this.lTitle.TabIndex = 50;
-            // 
+            //
             // lArtist
-            // 
+            //
             this.lArtist.BackColor = System.Drawing.Color.Transparent;
             this.lArtist.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lArtist.ForeColor = System.Drawing.Color.Red;
@@ -85,9 +88,9 @@
             this.lArtist.Name = "lArtist";
             this.lArtist.Size = new System.Drawing.Size(247, 13);
             this.lArtist.TabIndex = 49;
-            // 
+            //
             // lAlbum
-            // 
+            //
             this.lAlbum.BackColor = System.Drawing.Color.Transparent;
             this.lAlbum.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lAlbum.ForeColor = System.Drawing.Color.Red;
@@ -95,9 +98,9 @@
             this.lAlbum.Name = "lAlbum";
             this.lAlbum.Size = new System.Drawing.Size(247, 14);
             this.lAlbum.TabIndex = 48;
-            // 
+            //
             // lNowPlaying
-            // 
+            //
             this.lNowPlaying.AutoSize = true;
             this.lNowPlaying.Font = new System.Drawing.Font("Tahoma", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lNowPlaying.Location = new System.Drawing.Point(83, 5);
@@ -105,9 +108,9 @@
             this.lNowPlaying.Size = new System.Drawing.Size(94, 14);
             this.lNowPlaying.TabIndex = 2;
             this.lNowPlaying.Text = "Now Playing...";
-            // 
+            //
             // PlayStatusF1
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(245)))), ((int)(((byte)(242)))));
@@ -140,12 +143,12 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pbThumbnail;
-        private System.Windows.Forms.Timer hideFormTimer;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lTitle;
-        private System.Windows.Forms.Label lArtist;
-        private System.Windows.Forms.Label lAlbum;
-        private System.Windows.Forms.Label lNowPlaying;
+        private PictureBox pbThumbnail;
+        private Timer hideFormTimer;
+        private Panel panel1;
+        private Label lTitle;
+        private Label lArtist;
+        private Label lAlbum;
+        private Label lNowPlaying;
     }
 }

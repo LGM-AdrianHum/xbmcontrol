@@ -16,33 +16,25 @@
 //    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // ------------------------------------------------------------------------
 
-
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using XBMC;
-using System.IO;
-using System.Threading;
-using XBMControl;
-using XBMControl.Properties;
 using XBMControl.Language;
-using XBMControl.PlayStatusForm;
+using XBMControl.Properties;
 
 namespace XBMControl
 {
     public partial class MainForm : Form
     {
         private MediaBrowserF1 ShareBrowser;
-        internal XBMC_Communicator XBMC;
-        internal XBMCLanguage Language;
+        internal XbmcCommunicator XBMC;
+        internal XbmcLanguage Language;
         private ConfigurationF1 ConfigForm;
         private FullSizeImageF1 fullSizeImage;
         private VolumeControlF1 sysTrayVolumeControl;
-        public videoInfoF1 videoInfoForm;
+        public VideoInfoF1 videoInfoForm;
         internal PlaylistF1 Playlist = null;
         internal NavigatorF1 Navigator = null;
 
@@ -66,11 +58,11 @@ namespace XBMControl
 
         private bool repeatEnabled              = false;
         private bool partyModeEnabled           = false;
-       
+
         public MainForm()
         {
-            Language = new XBMCLanguage();
-            XBMC = new XBMC_Communicator();
+            Language = new XbmcLanguage();
+            XBMC = new XbmcCommunicator();
             XBMC.SetIp(Settings.Default.Ip);
             XBMC.SetConnectionTimeout(Settings.Default.ConnectionTimeout);
             XBMC.SetCredentials(Settings.Default.Username, Settings.Default.Password);
@@ -90,10 +82,10 @@ namespace XBMControl
                 if (!XBMC.Status.WebServerEnabled())
                 {
                     // Webserver inactive: Ask for continue (default is no)
-                    DialogResult dlgRet = MessageBox.Show(Language.GetString("mainform/dialog/webserverDisabled"),
-                        Language.GetString("mainform/dialog/webserverDisabledTitle"), 
-                        MessageBoxButtons.YesNo, 
-                        MessageBoxIcon.None, 
+                    var dlgRet = MessageBox.Show(Language.GetString("mainform/dialog/webserverDisabled"),
+                        Language.GetString("mainform/dialog/webserverDisabledTitle"),
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.None,
                         MessageBoxDefaultButton.Button2);
                     if (dlgRet == DialogResult.No)
                     {
@@ -101,7 +93,7 @@ namespace XBMControl
                         return;
                     }
                 }
-                
+
                 updateTimer.Enabled = true;
             }
             else
@@ -147,7 +139,7 @@ namespace XBMControl
 
             Language.SetLanguage(Settings.Default.Language);
             notifyIcon1.Visible = Settings.Default.ShowInSystemTray;
-            
+
             this.Visible = Settings.Default.ShowInTaskbar;
             this.WindowState = (Settings.Default.StartMinimized) ? FormWindowState.Minimized : FormWindowState.Normal;
             this.SetLanguageStrings();
@@ -249,7 +241,7 @@ namespace XBMControl
 //START Main window events
         private void MainForm_Resize(object sender, EventArgs e)
         {
-            if (this.WindowState == System.Windows.Forms.FormWindowState.Minimized)
+            if (this.WindowState == FormWindowState.Minimized)
                 this.Visible = Settings.Default.ShowInTaskbar;
         }
 
@@ -293,13 +285,13 @@ namespace XBMControl
             else if (this.XBMC.Status.IsNewMediaPlaying())
             {
                 if(Settings.Default.playlistOpened && this.Playlist != null) this.Playlist.RefreshPlaylist();
-                Image coverArt = this.XBMC.NowPlaying.GetCoverArt();
+                var coverArt = this.XBMC.NowPlaying.GetCoverArt();
                 pbThumbnail.Image       = (coverArt == null) ? Resources.XBMClogo : coverArt;
-                string year = (this.XBMC.NowPlaying.Get("year") == null) ? "" : " [" + this.XBMC.NowPlaying.Get("year") + "]";
+                var year = (this.XBMC.NowPlaying.Get("year") == null) ? "" : " [" + this.XBMC.NowPlaying.Get("year") + "]";
                 lBitrate.Text = this.XBMC.NowPlaying.Get("bitrate");
                 lSamplerate.Text = this.XBMC.NowPlaying.Get("samplerate");
-                string genre = (this.XBMC.NowPlaying.Get("genre") == null) ? "" : " [" + this.XBMC.NowPlaying.Get("genre") + "]";
-                string artistLable = (this.XBMC.NowPlaying.Get("artist") == "" || this.XBMC.NowPlaying.Get("artist") == null) ? "" : this.XBMC.NowPlaying.Get("artist") + " - ";
+                var genre = (this.XBMC.NowPlaying.Get("genre") == null) ? "" : " [" + this.XBMC.NowPlaying.Get("genre") + "]";
+                var artistLable = (this.XBMC.NowPlaying.Get("artist") == "" || this.XBMC.NowPlaying.Get("artist") == null) ? "" : this.XBMC.NowPlaying.Get("artist") + " - ";
                 lArtistSong.Text = artistLable + this.XBMC.NowPlaying.Get("title");
                 lArtist.Text = this.XBMC.NowPlaying.Get("artist") + genre;
                 lTitle.Text = this.XBMC.NowPlaying.Get("title") + " [" + this.XBMC.NowPlaying.Get("duration") + "]";
@@ -340,7 +332,7 @@ namespace XBMControl
 
         private void pbThumbnail_Click(object sender, EventArgs e)
         {
-            Image coverArt = this.XBMC.NowPlaying.GetCoverArt();
+            var coverArt = this.XBMC.NowPlaying.GetCoverArt();
             if (coverArt != null)
             {
                 fullSizeImage = new FullSizeImageF1(coverArt);
@@ -362,7 +354,7 @@ namespace XBMControl
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            MainContextMenu.Show(pictureBox1, new System.Drawing.Point(0, pictureBox1.Height));
+            MainContextMenu.Show(pictureBox1, new Point(0, pictureBox1.Height));
         }
 
         private void pbMediaType_Click(object sender, EventArgs e)
@@ -372,10 +364,10 @@ namespace XBMControl
 
         private void pbLastFM_Click()
         {
-            string artist = this.XBMC.NowPlaying.Get("artist");
+            var artist = this.XBMC.NowPlaying.Get("artist");
             artist = (artist == null) ? "" : artist.Replace(" ", "+");
 
-            string lastFmUrl = "http://www.last.fm/music/" + artist;
+            var lastFmUrl = "http://www.last.fm/music/" + artist;
             Help.ShowHelp(this, lastFmUrl);
         }
 
@@ -394,16 +386,16 @@ namespace XBMControl
             {
                 if (!this.XBMC.Status.IsNotPlaying() && this.XBMC.Status.IsNewMediaPlaying())
                 {
-                    string currentFilename = this.XBMC.NowPlaying.Get("filename");
-                    string genre = (this.XBMC.NowPlaying.Get("genre") == "" || this.XBMC.NowPlaying.Get("genre") == null) ? "" : " [" + this.XBMC.NowPlaying.Get("genre") + "]";
-                    string artist = this.XBMC.NowPlaying.Get("artist");
-                    string duration = this.XBMC.NowPlaying.Get("duration");
-                    string time = (duration == "" || duration == null) ? "" : " [" + duration + "]";
-                    string title = this.XBMC.NowPlaying.Get("title");
-                    string year = this.XBMC.NowPlaying.Get("year");
+                    var currentFilename = this.XBMC.NowPlaying.Get("filename");
+                    var genre = (this.XBMC.NowPlaying.Get("genre") == "" || this.XBMC.NowPlaying.Get("genre") == null) ? "" : " [" + this.XBMC.NowPlaying.Get("genre") + "]";
+                    var artist = this.XBMC.NowPlaying.Get("artist");
+                    var duration = this.XBMC.NowPlaying.Get("duration");
+                    var time = (duration == "" || duration == null) ? "" : " [" + duration + "]";
+                    var title = this.XBMC.NowPlaying.Get("title");
+                    var year = this.XBMC.NowPlaying.Get("year");
                     year = (year == "" || year == null) ? "" : " [" + year + "]";
-                    string album = this.XBMC.NowPlaying.Get("album") + year;
-                    string lastFM = (currentFilename.Substring(0, 6) == "lastfm") ? "(Last.FM)" : "";
+                    var album = this.XBMC.NowPlaying.Get("album") + year;
+                    var lastFM = (currentFilename.Substring(0, 6) == "lastfm") ? "(Last.FM)" : "";
 
                     if (this.XBMC.Status.IsConnected() && Settings.Default.ShowPlayStatusBalloonTips)
                     {
@@ -414,7 +406,7 @@ namespace XBMControl
                             tempString = tempString.Substring(0, 63);
                         notifyIcon1.Text = tempString;
                     }
-                }  
+                }
             }
         }
 
@@ -444,7 +436,7 @@ namespace XBMControl
             }
         }
 
-        private void ShowConnectionInfo() 
+        private void ShowConnectionInfo()
         {
             if (!this.XBMC.Status.IsConnected() && Settings.Default.ShowConnectionInfo)
             {
@@ -613,13 +605,13 @@ namespace XBMControl
         private void cmsNotifyShow_Click(object sender, EventArgs e)
         {
             this.Visible        = true;
-            this.WindowState    = System.Windows.Forms.FormWindowState.Normal;
+            this.WindowState    = FormWindowState.Normal;
             this.Focus();
         }
 
         private void cmsNotifyHide_Click(object sender, EventArgs e)
         {
-            this.WindowState    = System.Windows.Forms.FormWindowState.Minimized;
+            this.WindowState    = FormWindowState.Minimized;
             this.Visible        = Settings.Default.ShowInTaskbar;
         }
 
@@ -653,7 +645,7 @@ namespace XBMControl
 
         private void cmsShowScreenshot_Click(object sender, EventArgs e)
         {
-            Image screenshot = XBMC.Controls.GetScreenshot();
+            var screenshot = XBMC.Controls.GetScreenshot();
 
             if (screenshot == null)
                 MessageBox.Show("Failed taking screenshot");
@@ -666,7 +658,7 @@ namespace XBMControl
 
         private void cmsSendMediaUrl_Click(object sender, EventArgs e)
         {
-            SendMediaUrl SendMedia = new SendMediaUrl(this);
+            var SendMedia = new SendMediaUrl(this);
             SendMedia.Show();
         }
 
@@ -704,7 +696,7 @@ namespace XBMControl
 
         private void ToggleShowMainWindow()
         {
-            if (this.WindowState == System.Windows.Forms.FormWindowState.Normal)
+            if (this.WindowState == FormWindowState.Normal)
             {
                 this.WindowState    = FormWindowState.Minimized;
                 this.Visible        = Settings.Default.ShowInTaskbar;
@@ -1122,7 +1114,7 @@ namespace XBMControl
                 cmsViewNavigator_Click(null, null);
         }
 //END NAVIGATOR BUTTON
-        
+
 //START FAKE DRAG DROP
         private void pToolbar_MouseDown(object sender, MouseEventArgs e)
         {
@@ -1135,7 +1127,7 @@ namespace XBMControl
         {
             isDragging = false;
             if (e.Button == MouseButtons.Right)
-                MainContextMenu.Show(pToolbar, new System.Drawing.Point(0, pToolbar.Height));
+                MainContextMenu.Show(pToolbar, new Point(0, pToolbar.Height));
         }
 
         private void pToolbar_MouseMove(object sender, MouseEventArgs e)
@@ -1155,7 +1147,7 @@ namespace XBMControl
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            MainContextMenu.Show(pToolbar, new System.Drawing.Point(0, pToolbar.Height));
+            MainContextMenu.Show(pToolbar, new Point(0, pToolbar.Height));
         }
 //END FAKE DRAG DROP
 

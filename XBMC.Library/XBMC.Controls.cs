@@ -1,197 +1,158 @@
-﻿// ------------------------------------------------------------------------
-//    XBMControl - A compact remote controller for XBMC (.NET 3.5)
-//    Copyright (C) 2008  Bram van Oploo (bramvano@gmail.com)
+﻿// Author: Hum, Adrian
+// Project: XBMControl/XBMControl/XBMC.Controls.cs
 //
-//    This program is free software: you can redistribute it and/or modify
-//    it under the terms of the GNU General Public License as published by
-//    the Free Software Foundation, either version 3 of the License, or
-//    (at your option) any later version.
-//
-//    This program is distributed in the hope that it will be useful,
-//    but WITHOUT ANY WARRANTY; without even the implied warranty of
-//    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//    GNU General Public License for more details.
-//
-//    You should have received a copy of the GNU General Public License
-//    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-// ------------------------------------------------------------------------
+// Created  Date: 2015-10-20  8:59 AM
+// Modified Date: 2015-10-20  9:53 AM
+
+#region Using Directives
 
 using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.IO;
-using System.Windows.Forms;
 
-namespace XBMC
-{
-    public class XBMC_Controls
-    {
-        XBMC_Communicator parent = null;
+#endregion
 
-        public XBMC_Controls(XBMC_Communicator p)
-        {
-            parent = p;
+namespace XBMC {
+    [SuppressMessage("ReSharper", "StringLiteralTypo")] public class XbmcControls {
+        private readonly XbmcCommunicator _parent;
+
+        public XbmcControls(XbmcCommunicator p) {
+            _parent = p;
         }
 
-        public void Play()
-        {
-            parent.Request("ExecBuiltIn", "PlayerControl(Play)");
+        public void Play() {
+            _parent.Request("ExecBuiltIn", "PlayerControl(Play)");
         }
 
-        public void PlayFile(string filename)
-        {
-            parent.Request("PlayFile(" + filename + ")");
+        public void PlayFile(string filename) {
+            _parent.Request("PlayFile(" + filename + ")");
         }
 
-        public void PlayMedia(string media)
-        {
-            parent.Request("ExecBuiltIn", "PlayMedia(" + media + ")");
+        public void PlayMedia(string media) {
+            _parent.Request("ExecBuiltIn", "PlayMedia(" + media + ")");
         }
 
-        public void Stop()
-        {
-            parent.Request("ExecBuiltIn", "PlayerControl(Stop)");
+        public void Stop() {
+            _parent.Request("ExecBuiltIn", "PlayerControl(Stop)");
         }
 
-        public void Next()
-        {
-            parent.Request("ExecBuiltIn", "PlayerControl(Next)");
+        public void Next() {
+            _parent.Request("ExecBuiltIn", "PlayerControl(Next)");
         }
 
-        public void PlayListNext()
-        {
-            parent.Request("PlayListNext");
+        public void PlayListNext() {
+            _parent.Request("PlayListNext");
         }
 
-        public void Previous()
-        {
-            parent.Request("ExecBuiltIn", "PlayerControl(Previous)");
+        public void Previous() {
+            _parent.Request("ExecBuiltIn", "PlayerControl(Previous)");
         }
 
-        public void ToggleShuffle()
-        {
-            parent.Request("ExecBuiltIn", "PlayerControl(Random)");
+        public void ToggleShuffle() {
+            _parent.Request("ExecBuiltIn", "PlayerControl(Random)");
         }
 
-        public void TogglePartymode()
-        {
-            parent.Request("ExecBuiltIn", "PlayerControl(Partymode(music))");
+        public void TogglePartymode() {
+            _parent.Request("ExecBuiltIn", "PlayerControl(Partymode(music))");
         }
 
-        public void Repeat(bool enable)
-        {
-            string mode = (enable) ? "Repeat" : "RepeatOff";
-            parent.Request("ExecBuiltIn", "PlayerControl(" + mode + ")");
+        public void Repeat(bool enable) {
+            var mode = (enable) ? "Repeat" : "RepeatOff";
+            _parent.Request("ExecBuiltIn", "PlayerControl(" + mode + ")");
         }
 
-        public void LastFmLove()
-        {
-            parent.Request("ExecBuiltIn", "LastFM.Love(false)");
+        public void LastFmLove() {
+            _parent.Request("ExecBuiltIn", "LastFM.Love(false)");
         }
 
-        public void LastFmHate()
-        {
-            parent.Request("ExecBuiltIn", "LastFM.Ban(false)");
+        public void LastFmHate() {
+            _parent.Request("ExecBuiltIn", "LastFM.Ban(false)");
         }
 
-        public void ToggleMute()
-        {
-            parent.Request("ExecBuiltIn", "Mute");
+        public void ToggleMute() {
+            _parent.Request("ExecBuiltIn", "Mute");
         }
 
-        public void SetVolume(int percentage)
-        {
-            parent.Request("ExecBuiltIn", "SetVolume(" + Convert.ToString(percentage) + ")");
+        public void SetVolume(int percentage) {
+            _parent.Request("ExecBuiltIn", "SetVolume(" + Convert.ToString(percentage) + ")");
         }
 
-        public void SeekPercentage(int percentage)
-        {
-            parent.Request("SeekPercentage", Convert.ToString(percentage));
+        public void SeekPercentage(int percentage) {
+            _parent.Request("SeekPercentage", Convert.ToString(percentage));
         }
 
-        public void Reboot()
-        {
-            parent.Request("ExecBuiltIn", "Reboot");
+        public void Reboot() {
+            _parent.Request("ExecBuiltIn", "Reboot");
         }
 
-        public void Shutdown()
-        {
-            parent.Request("ExecBuiltIn", "Shutdown");
+        public void Shutdown() {
+            _parent.Request("ExecBuiltIn", "Shutdown");
         }
 
-        public void Restart()
-        {
-            parent.Request("ExecBuiltIn", "RestartApp");
+        public void Restart() {
+            _parent.Request("ExecBuiltIn", "RestartApp");
         }
 
-        public string GetGuiDescription(string field)
-        {
+        public string GetGuiDescription(string field) {
             string returnValue = null;
-            string[] aGuiDescription = parent.Request("GetGUIDescription");
+            var aGuiDescription = _parent.Request("GetGUIDescription");
 
-            for (int x = 0; x < aGuiDescription.Length; x++)
-            {
-                int splitIndex = aGuiDescription[x].IndexOf(':') + 1;
-                if (splitIndex > 1)
-                {
-                    string resultField = aGuiDescription[x].Substring(0, splitIndex - 1).Replace(" ", "").ToLower();
-                    if (resultField == field) returnValue = aGuiDescription[x].Substring(splitIndex, aGuiDescription[x].Length - splitIndex);
-                }
+            foreach (var t in aGuiDescription) {
+                var splitIndex = t.IndexOf(':') + 1;
+                if (splitIndex <= 1) continue;
+                var resultField = t.Substring(0, splitIndex - 1).
+                    Replace(" ", "").
+                    ToLower();
+                if (resultField == field) returnValue = t.Substring(splitIndex, t.Length - splitIndex);
             }
 
             return returnValue;
         }
 
-        public string GetScreenshotBase64()
-        {
-            string[] base64screenshot = parent.Request("takescreenshot", "screenshot.png;false;0;" + this.GetGuiDescription("width") + ";" + this.GetGuiDescription("height") + ";75;true;");
-            return (base64screenshot == null) ? null : base64screenshot[0];
+        public string GetScreenshotBase64() {
+            var base64Screenshot = _parent.Request("takescreenshot", "screenshot.png;false;0;" + GetGuiDescription("width") + ";" + GetGuiDescription("height") + ";75;true;");
+            return (base64Screenshot == null) ? null : base64Screenshot[0];
         }
 
-        public Image Base64StringToImage(string base64String)
-        {
+        public Image Base64StringToImage(string base64String) {
             Bitmap file = null;
-            byte[] bytes = Convert.FromBase64String(base64String);
-            MemoryStream stream = new MemoryStream(bytes);
+            var bytes = Convert.FromBase64String(base64String);
+            var stream = new MemoryStream(bytes);
 
-            if (base64String != null && base64String != "")
+            if (!string.IsNullOrEmpty(base64String))
                 file = new Bitmap(Image.FromStream(stream));
 
             return file;
         }
 
-        public Image GetScreenshot()
-        {
+        public Image GetScreenshot() {
             Image screenshot = null;
-            string base64ImageString = this.GetScreenshotBase64();
+            var base64ImageString = GetScreenshotBase64();
 
-            if (base64ImageString != null && !base64ImageString.Contains("Error"))
-                screenshot = this.Base64StringToImage(base64ImageString);
+            if (base64ImageString != null &&
+                !base64ImageString.Contains("Error"))
+                screenshot = Base64StringToImage(base64ImageString);
 
             return screenshot;
         }
 
-        public void UpdateLibrary(string library)
-        {
-            if(library == "music" || library == "video")
-                parent.Request("ExecBuiltIn", "updatelibrary(" + library + ")");
+        public void UpdateLibrary(string library) {
+            if (library == "music" ||
+                library == "video")
+                _parent.Request("ExecBuiltIn", "updatelibrary(" + library + ")");
         }
 
-        public bool SetResponseFormat()
-        {
+        public bool SetResponseFormat() {
             string[] aResult = null;
-            string ip = parent.GetIp();
+            var ip = _parent.GetIp();
 
-            if (ip != null && ip != "")
-                aResult = parent.Request("SetResponseFormat", null, ip);
+            if (!string.IsNullOrEmpty(ip))
+                aResult = _parent.Request("SetResponseFormat", null, ip);
 
             if (aResult == null)
                 return false;
-            else
-            {
-                return (aResult[0] == "OK") ? true : false;
-            }
+            return (aResult[0] == "OK");
         }
     }
 }
