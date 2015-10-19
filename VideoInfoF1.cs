@@ -1,45 +1,46 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
+﻿// Author: Hum, Adrian
+// Project: XBMControl/XBMControl/VideoInfoF1.cs
+//
+// Created  Date: 2015-10-20  8:59 AM
+// Modified Date: 2015-10-20  9:33 AM
+
+#region Using Directives
+
+using System;
 using System.Windows.Forms;
 
-namespace XBMControl
-{
-    public partial class videoInfoF1 : Form
-    {
-        MainForm parent;
-        string[] videoInfoList;
+#endregion
 
-        public videoInfoF1(MainForm parentForm, string videoID)
-        {
-            parent = parentForm;
+namespace XBMControl {
+    public partial class VideoInfoF1 : Form {
+        private readonly MainForm _parent;
+        private string[] _videoInfoList;
+
+        /// <exception cref="Exception">A top-level window cannot have an owner. </exception>
+        public VideoInfoF1(MainForm parentForm, string videoId) {
+            _parent = parentForm;
             InitializeComponent();
-            this.Owner = parent;
-            this.fillVideoInfo(videoID);
+            Owner = _parent;
+            FillVideoInfo(videoId);
         }
 
-        private void bClose_Click(object sender, EventArgs e)
-        {
-            parent.videoInfoOpened = false;
-            this.Close();
+        private void bClose_Click(object sender, EventArgs e) {
+            _parent.videoInfoOpened = false;
+            Close();
         }
 
-        private void fillVideoInfo(string videoID)
-        {
-            videoInfoList = parent.XBMC.Video.GetVideoLibraryInfo(videoID);
+        private void FillVideoInfo(string videoId) {
+            _videoInfoList = _parent.XBMC.Video.GetVideoLibraryInfo(videoId);
 
-            this.videoPicture.Image = parent.XBMC.Video.getVideoThumb(videoID);
-            this.videoName.Text = videoInfoList[1];
-            this.videoPlot.Text = videoInfoList[2];
-            this.videoGenre.Text = videoInfoList[15];
-            this.videoYear.Text = videoInfoList[8];
-            this.videoRuntime.Text = videoInfoList[12];
-            this.videoRating.Text = videoInfoList[6] + " (" + videoInfoList[5] + " votes)";
-            this.videoTagline.Text = videoInfoList[4];
-            this.videoMPAARating.Text = videoInfoList[13];
+            videoPicture.Image = _parent.XBMC.Video.GetVideoThumb(videoId);
+            videoName.Text = _videoInfoList[1];
+            videoPlot.Text = _videoInfoList[2];
+            videoGenre.Text = _videoInfoList[15];
+            videoYear.Text = _videoInfoList[8];
+            videoRuntime.Text = _videoInfoList[12];
+            videoRating.Text = _videoInfoList[6] + @" (" + _videoInfoList[5] + @" votes)";
+            videoTagline.Text = _videoInfoList[4];
+            videoMPAARating.Text = _videoInfoList[13];
         }
     }
 }

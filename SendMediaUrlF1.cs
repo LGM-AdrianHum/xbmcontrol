@@ -1,28 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
+﻿// Author: Hum, Adrian
+// Project: XBMControl/XBMControl/SendMediaUrlF1.cs
+//
+// Created  Date: 2015-10-20  8:59 AM
+// Modified Date: 2015-10-20  9:32 AM
+
+#region Using Directives
+
+using System;
 using System.Windows.Forms;
-using System.Web;
-using XBMControl.Properties;
 
-namespace XBMControl
-{
-    public partial class SendMediaUrl : Form
-    {
-        MainForm parent;
+#endregion
 
-        public SendMediaUrl(MainForm parentForm)
-        {
-            parent = parentForm;
+namespace XBMControl {
+    public partial class SendMediaUrl : Form {
+        private readonly MainForm _parent;
+
+        public SendMediaUrl(MainForm parentForm) {
+            _parent = parentForm;
             InitializeComponent();
         }
 
-        private void bSendMediaUrl_Click(object sender, EventArgs e)
-        {
-            if (tbMediaUrl.Text != "") parent.XBMC.Controls.PlayMedia(tbMediaUrl.Text);
+        private void bSendMediaUrl_Click(object sender, EventArgs e) {
+            if (tbMediaUrl.Text != "") _parent.XBMC.Controls.PlayMedia(tbMediaUrl.Text);
             Close();
         }
     }

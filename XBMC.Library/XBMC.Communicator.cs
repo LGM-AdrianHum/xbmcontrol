@@ -1,170 +1,154 @@
-﻿// ------------------------------------------------------------------------
-//    XBMControl - A compact remote controller for XBMC (.NET 3.5)
-//    Copyright (C) 2008  Bram van Oploo (bramvano@gmail.com)
-//                        Mike Thiels (Mike.Thiels@gmail.com)
+﻿// Author: Hum, Adrian
+// Project: XBMControl/XBMControl/XBMC.Communicator.cs
 //
-//    This program is free software: you can redistribute it and/or modify
-//    it under the terms of the GNU General Public License as published by
-//    the Free Software Foundation, either version 3 of the License, or
-//    (at your option) any later version.
-//
-//    This program is distributed in the hope that it will be useful,
-//    but WITHOUT ANY WARRANTY; without even the implied warranty of
-//    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//    GNU General Public License for more details.
-//
-//    You should have received a copy of the GNU General Public License
-//    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-// ------------------------------------------------------------------------
+// Created  Date: 2015-10-20  8:59 AM
+// Modified Date: 2015-10-20  9:49 AM
+
+#region Using Directives
 
 using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Net;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
-using System.Windows.Forms;
+using System.Net;
+using System.Text;
 
-namespace XBMC
-{
-    public class XBMC_Communicator
-    {
-        public XBMC_Database Database = null;
-        public XBMC_Playlist Playlist = null;
-        public XBMC_Controls Controls = null;
-        public XBMC_NowPlaying NowPlaying = null;
-        public XBMC_Status Status = null;
-        public XBMC_Media Media = null;
-        public XBMC_Video Video = null;
+#endregion
 
-        private string configuredIp = null;
-        private string xbmcUsername = null;
-        private string xbmcPassword = null;
-        private string apiPath = "/xbmcCmds/xbmcHttp";
-        private string logFile = "log/xbmcontrol.log";
-        private int connectionTimeout = 2000;
+namespace XBMC {
+    [SuppressMessage("ReSharper", "ExceptionNotDocumented"), SuppressMessage("ReSharper", "CatchAllClause"), SuppressMessage("ReSharper", "CyclomaticComplexity"), SuppressMessage("ReSharper", "StringLiteralTypo"), SuppressMessage("ReSharper", "ExceptionNotDocumentedOptional"), SuppressMessage("ReSharper", "AssignNullToNotNullAttribute"),
+     SuppressMessage("ReSharper", "IdentifierTypo")]       public class XbmcCommunicator {
+        private readonly string _apiPath = "/xbmcCmds/xbmcHttp";
+        private readonly string _logFile = "log/xbmcontrol.log";
+        private string _configuredIp;
+        private int _connectionTimeout = 2000;
+        private string _xbmcPassword;
+        private string _xbmcUsername;
+        public XbmcControls Controls;
+        public XbmcDatabase Database;
+        public XbmcMedia Media;
+        public XbmcNowPlaying NowPlaying;
+        public XbmcPlaylist Playlist;
+        public XbmcStatus Status;
+        public XbmcVideo Video;
 
-        public XBMC_Communicator()
-        {
-            Database = new XBMC_Database(this);
-            Playlist = new XBMC_Playlist(this);
-            Controls = new XBMC_Controls(this);
-            NowPlaying = new XBMC_NowPlaying(this);
-            Status = new XBMC_Status(this);
-            Media = new XBMC_Media(this);
-            Video = new XBMC_Video(this);
+        public XbmcCommunicator() {
+            Database = new XbmcDatabase(this);
+            Playlist = new XbmcPlaylist(this);
+            Controls = new XbmcControls(this);
+            NowPlaying = new XbmcNowPlaying(this);
+            Status = new XbmcStatus(this);
+            Media = new XbmcMedia(this);
+            Video = new XbmcVideo(this);
         }
 
-        private string[] MySplitString(string s, string delimeter)
-        {
-            if (s == null)
-                throw new ArgumentNullException("stringToBeSplitted is null.");
+        private string[] MySplitString(string stringToBeSplitted, string delimeter) {
+            if (string.IsNullOrEmpty(stringToBeSplitted))
+                throw new ArgumentNullException("stringToBeSplitted");
             if (delimeter == null)
-                throw new ArgumentNullException("delimeter is null.");
+                throw new ArgumentNullException("delimeter");
 
-            int dsum = 0;
-            int ssum = 0;
-            int dl = delimeter.Length;
-            int sl = s.Length;
+            var dsum = 0;
+            var ssum = 0;
+            var dl = delimeter.Length;
+            var sl = stringToBeSplitted.Length;
 
-            if (dl == 0 || sl == 0 || sl < dl)
-                return new string[] { s };
+            if (dl == 0 ||
+                sl == 0 ||
+                sl < dl)
+                return new[] {stringToBeSplitted};
 
-            char[] cd = delimeter.ToCharArray();
-            char[] cs = s.ToCharArray();
-            List<string> retlist = new List<string>();
+            var cd = delimeter.ToCharArray();
+            var cs = stringToBeSplitted.ToCharArray();
 
-            for (int i = 0; i < dl; i++)
-            {
+            var list = new List<string>();
+
+            for (var i = 0; i < dl; i++) {
                 dsum += cd[i];
                 ssum += cs[i];
             }
 
-            int start = 0;
-            for (int i = start; i < sl - dl; i++)
-            {
-                if (i >= start && dsum == ssum && s.Substring(i, dl) == delimeter)
-                {
-                    retlist.Add(s.Substring(start, i - start));
+            var start = 0;
+            for (var i = start; i < sl - dl; i++) {
+                if (i >= start &&
+                    dsum == ssum &&
+                    stringToBeSplitted.Substring(i, dl) == delimeter) {
+                    list.Add(stringToBeSplitted.Substring(start, i - start));
                     start = i + dl;
                 }
 
                 ssum += cs[i + dl] - cs[i];
             }
 
-            if (dsum == ssum && s.Substring(sl - dl, dl) == delimeter)
-            {
-                retlist.Add(s.Substring(start, sl - dl - start));
-                retlist.Add("");
+            if (dsum == ssum &&
+                stringToBeSplitted.Substring(sl - dl, dl) == delimeter) {
+                list.Add(stringToBeSplitted.Substring(start, sl - dl - start));
+                list.Add("");
             }
             else
-            {
-                retlist.Add(s.Substring(start, sl - start));
-            }
+                list.Add(stringToBeSplitted.Substring(start, sl - start));
 
-            return retlist.ToArray();
+            return list.ToArray();
         }
 
-        public string[] Request(string command, string parameter, string ip)
-        {
+        public string[] Request(string command, string parameter, string ip) {
             string[] pageItems = null;
-            HttpWebRequest request = null;
             HttpWebResponse response = null;
             StreamReader reader = null;
-            string[] pageContent = null;
-            string tempString = null;
 
-            bool isQuery = (command.ToLower() == "querymusicdatabase" || command.ToLower() == "queryvideodatabase") ? true : false;
+            var isQuery = (command.ToLower() == "querymusicdatabase" || command.ToLower() == "queryvideodatabase");
 
-            string ipAddress = (ip == null) ? configuredIp : ip;
-            parameter = (parameter == null) ? "" : parameter;
+            var ipAddress = ip ?? _configuredIp;
+            parameter = parameter ?? "";
             command = "?command=" + Uri.EscapeDataString(command);
-            command += (parameter == null || parameter == "") ? "" : "&parameter=" + Uri.EscapeDataString(parameter);
-            string uri = "http://" + ipAddress + apiPath + command;
+            command += string.IsNullOrEmpty(parameter) ? "" : "&parameter=" + Uri.EscapeDataString(parameter);
+            var uri = "http://" + ipAddress + _apiPath + command;
 
             //WriteToLog(uri);
 
-            try
-            {
-                request = (HttpWebRequest)HttpWebRequest.Create(uri);
+            try {
+                var request = (HttpWebRequest) WebRequest.Create(uri);
                 request.Method = "GET";
-                request.Timeout = connectionTimeout;
-                if (xbmcUsername != "" && xbmcPassword != "") request.Credentials = new NetworkCredential(xbmcUsername, xbmcPassword);
-                response = (HttpWebResponse)request.GetResponse();
+                request.Timeout = _connectionTimeout;
+                if (_xbmcUsername != "" &&
+                    _xbmcPassword != "") request.Credentials = new NetworkCredential(_xbmcUsername, _xbmcPassword);
+                response = (HttpWebResponse) request.GetResponse();
                 reader = new StreamReader(response.GetResponseStream(), Encoding.UTF8);
 
-                if (isQuery)
-                {
-                    tempString = reader.ReadToEnd().Replace("</field>", "").Replace("\n", "").Replace("<html>", "").Replace("</html>", "");
+                string[] pageContent;
+                string tempString;
+                if (isQuery) {
+                    tempString = reader.ReadToEnd().
+                        Replace("</field>", "").
+                        Replace("\n", "").
+                        Replace("<html>", "").
+                        Replace("</html>", "");
                     pageContent = MySplitString(tempString, "<field>");
                 }
-                else
-                {
-                    tempString = reader.ReadToEnd().Replace("\n", "").Replace("<html>", "").Replace("</html>", "");
+                else {
+                    tempString = reader.ReadToEnd().
+                        Replace("\n", "").
+                        Replace("<html>", "").
+                        Replace("</html>", "");
                     pageContent = MySplitString(tempString, "<li>");
                 }
 
                 if (pageContent != null)
-                {
-                    if (pageContent.Length > 1)
-                    {
-                        pageItems = new string[pageContent.Length-1];
+                    if (pageContent.Length > 1) {
+                        pageItems = new string[pageContent.Length - 1];
 
-                        for (int x = 1; x < pageContent.Length; x++)
-                            pageItems[x-1] = pageContent[x];
+                        for (var x = 1; x < pageContent.Length; x++)
+                            pageItems[x - 1] = pageContent[x];
                     }
-                    else
-                    {
+                    else {
                         pageItems = new string[1];
                         pageItems[0] = pageContent[0];
                     }
-                }
             }
-            catch (WebException e)
-            {
+            catch (WebException e) {
                 WriteToLog("ERROR - " + e.Message);
             }
-            finally
-            {
+            finally {
                 if (response != null) response.Close();
                 if (reader != null) reader.Close();
             }
@@ -172,63 +156,50 @@ namespace XBMC
             return pageItems;
         }
 
-        public string[] Request(string command, string parameter)
-        {
+        public string[] Request(string command, string parameter) {
             return Request(command, parameter, null);
         }
 
-        public string[] Request(string command)
-        {
+        public string[] Request(string command) {
             return Request(command, null, null);
         }
 
-        private void WriteToLog(string message)
-        {
-
+        private void WriteToLog(string message) {
             StreamWriter sw = null;
-            string error = null;
 
-            try
-            {
-                sw = new StreamWriter(logFile, true);
+            try {
+                sw = new StreamWriter(_logFile, true);
                 sw.WriteLine(DateTime.Now + " : " + message);
             }
-            catch (Exception e)
-            {
-                error = e.Message;
+            catch (Exception) {
+                // ignored
             }
 
-            if (sw != null)
-            {
-                sw.Flush();
-                sw.Close();
-            }
+            if (sw == null) return;
+            sw.Flush();
+            sw.Close();
         }
 
-        public void SetIp(string ip)
-        {
-            configuredIp = ip;
+        public void SetIp(string ip) {
+            _configuredIp = ip;
 
-            if (configuredIp == null || configuredIp == "")
+            if (string.IsNullOrEmpty(_configuredIp))
                 Status.DisableHeartBeat();
             else
                 Status.EnableHeartBeat();
         }
 
-        public string GetIp()
-        {
-            return configuredIp;
+        public string GetIp() {
+            return _configuredIp;
         }
 
-        public void SetCredentials(string username, string password)
-        {
-            xbmcUsername = username;
-            xbmcPassword = password;
+        public void SetCredentials(string username, string password) {
+            _xbmcUsername = username;
+            _xbmcPassword = password;
         }
 
-        public void SetConnectionTimeout(int timeOut)
-        {
-            connectionTimeout = timeOut;
+        public void SetConnectionTimeout(int timeOut) {
+            _connectionTimeout = timeOut;
         }
     }
 }

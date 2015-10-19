@@ -1,11 +1,14 @@
-﻿namespace XBMControl
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace XBMControl
 {
     partial class MediaBrowserF1
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -29,7 +32,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MediaBrowserF1));
+            var resources = new System.ComponentModel.ComponentResourceManager(typeof(MediaBrowserF1));
             this.cmsFolder = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsiPlayRecursive = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiEnqueueRecursive = new System.Windows.Forms.ToolStripMenuItem();
@@ -101,9 +104,9 @@
             this.tabVideos.SuspendLayout();
             this.cmsVideo.SuspendLayout();
             this.SuspendLayout();
-            // 
+            //
             // cmsFolder
-            // 
+            //
             this.cmsFolder.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsiPlayRecursive,
             this.tsiEnqueueRecursive,
@@ -115,70 +118,70 @@
             this.cmsFolder.Name = "cmsFolder";
             this.cmsFolder.Size = new System.Drawing.Size(175, 126);
             this.cmsFolder.Opening += new System.ComponentModel.CancelEventHandler(this.cmsFolder_Opening);
-            // 
+            //
             // tsiPlayRecursive
-            // 
+            //
             this.tsiPlayRecursive.Name = "tsiPlayRecursive";
             this.tsiPlayRecursive.Size = new System.Drawing.Size(174, 22);
             this.tsiPlayRecursive.Text = "Play";
             this.tsiPlayRecursive.Click += new System.EventHandler(this.tsiPlayRecursive_Click);
-            // 
+            //
             // tsiEnqueueRecursive
-            // 
+            //
             this.tsiEnqueueRecursive.Name = "tsiEnqueueRecursive";
             this.tsiEnqueueRecursive.Size = new System.Drawing.Size(174, 22);
             this.tsiEnqueueRecursive.Text = "Enqueue";
             this.tsiEnqueueRecursive.Click += new System.EventHandler(this.tsiEnqueueRecursive_Click);
-            // 
+            //
             // toolStripSeparator2
-            // 
+            //
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(171, 6);
-            // 
+            //
             // tsiUpdateLibrary
-            // 
+            //
             this.tsiUpdateLibrary.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsiUpdateMusicLibrary1,
             this.tsiUpdateVideoLibrary1});
             this.tsiUpdateLibrary.Name = "tsiUpdateLibrary";
             this.tsiUpdateLibrary.Size = new System.Drawing.Size(174, 22);
             this.tsiUpdateLibrary.Text = "Update library";
-            // 
+            //
             // tsiUpdateMusicLibrary1
-            // 
+            //
             this.tsiUpdateMusicLibrary1.Name = "tsiUpdateMusicLibrary1";
             this.tsiUpdateMusicLibrary1.Size = new System.Drawing.Size(111, 22);
             this.tsiUpdateMusicLibrary1.Text = "Music";
             this.tsiUpdateMusicLibrary1.Click += new System.EventHandler(this.UpdateMusicLibrary);
-            // 
+            //
             // tsiUpdateVideoLibrary1
-            // 
+            //
             this.tsiUpdateVideoLibrary1.Name = "tsiUpdateVideoLibrary1";
             this.tsiUpdateVideoLibrary1.Size = new System.Drawing.Size(111, 22);
             this.tsiUpdateVideoLibrary1.Text = "Video";
             this.tsiUpdateVideoLibrary1.Click += new System.EventHandler(this.UpdateVideoLibrary);
-            // 
+            //
             // toolStripSeparator1
-            // 
+            //
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(171, 6);
-            // 
+            //
             // tsiCollapseAll
-            // 
+            //
             this.tsiCollapseAll.Name = "tsiCollapseAll";
             this.tsiCollapseAll.Size = new System.Drawing.Size(174, 22);
             this.tsiCollapseAll.Text = "Collapse all folders";
             this.tsiCollapseAll.Click += new System.EventHandler(this.tsiCollapseAll_Click);
-            // 
+            //
             // tsiRefresh
-            // 
+            //
             this.tsiRefresh.Name = "tsiRefresh";
             this.tsiRefresh.Size = new System.Drawing.Size(174, 22);
             this.tsiRefresh.Text = "Refresh";
             this.tsiRefresh.Click += new System.EventHandler(this.tsiRefresh_Click);
-            // 
+            //
             // ilFiletypes
-            // 
+            //
             this.ilFiletypes.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ilFiletypes.ImageStream")));
             this.ilFiletypes.TransparentColor = System.Drawing.Color.Transparent;
             this.ilFiletypes.Images.SetKeyName(0, "folder2.png");
@@ -186,9 +189,9 @@
             this.ilFiletypes.Images.SetKeyName(2, "picture.png");
             this.ilFiletypes.Images.SetKeyName(3, "video.png");
             this.ilFiletypes.Images.SetKeyName(4, "file.png");
-            // 
+            //
             // cmsSongs
-            // 
+            //
             this.cmsSongs.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsiPlayFiles,
             this.tsiEnqueueFiles,
@@ -197,51 +200,51 @@
             this.cmsSongs.Name = "cmsFiles";
             this.cmsSongs.Size = new System.Drawing.Size(154, 76);
             this.cmsSongs.Opening += new System.ComponentModel.CancelEventHandler(this.cmsSongs_Opening);
-            // 
+            //
             // tsiPlayFiles
-            // 
+            //
             this.tsiPlayFiles.Name = "tsiPlayFiles";
             this.tsiPlayFiles.Size = new System.Drawing.Size(153, 22);
             this.tsiPlayFiles.Text = "Play";
             this.tsiPlayFiles.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PlaySelectedFiles);
-            // 
+            //
             // tsiEnqueueFiles
-            // 
+            //
             this.tsiEnqueueFiles.Name = "tsiEnqueueFiles";
             this.tsiEnqueueFiles.Size = new System.Drawing.Size(153, 22);
             this.tsiEnqueueFiles.Text = "Enqueue";
             this.tsiEnqueueFiles.MouseUp += new System.Windows.Forms.MouseEventHandler(this.EnqueSelectedFiles);
-            // 
+            //
             // toolStripSeparator3
-            // 
+            //
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(150, 6);
-            // 
+            //
             // tsiUpdateLibrary2
-            // 
+            //
             this.tsiUpdateLibrary2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsiUpdateMusicLibrary2,
             this.tsiUpdateVideoLibrary2});
             this.tsiUpdateLibrary2.Name = "tsiUpdateLibrary2";
             this.tsiUpdateLibrary2.Size = new System.Drawing.Size(153, 22);
             this.tsiUpdateLibrary2.Text = "Update library";
-            // 
+            //
             // tsiUpdateMusicLibrary2
-            // 
+            //
             this.tsiUpdateMusicLibrary2.Name = "tsiUpdateMusicLibrary2";
             this.tsiUpdateMusicLibrary2.Size = new System.Drawing.Size(111, 22);
             this.tsiUpdateMusicLibrary2.Text = "Music";
             this.tsiUpdateMusicLibrary2.Click += new System.EventHandler(this.UpdateMusicLibrary);
-            // 
+            //
             // tsiUpdateVideoLibrary2
-            // 
+            //
             this.tsiUpdateVideoLibrary2.Name = "tsiUpdateVideoLibrary2";
             this.tsiUpdateVideoLibrary2.Size = new System.Drawing.Size(111, 22);
             this.tsiUpdateVideoLibrary2.Text = "Video";
             this.tsiUpdateVideoLibrary2.Click += new System.EventHandler(this.UpdateVideoLibrary);
-            // 
+            //
             // tcMediaBrowser
-            // 
+            //
             this.tcMediaBrowser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
@@ -257,9 +260,9 @@
             this.tcMediaBrowser.TabIndex = 2;
             this.tcMediaBrowser.MouseHover += new System.EventHandler(this.SetFocus);
             this.tcMediaBrowser.SelectedIndexChanged += new System.EventHandler(this.tcMediaBrowser_SelectedIndexChanged);
-            // 
+            //
             // tabShares
-            // 
+            //
             this.tabShares.Controls.Add(this.splitContainer1);
             this.tabShares.Location = new System.Drawing.Point(4, 22);
             this.tabShares.Name = "tabShares";
@@ -269,29 +272,29 @@
             this.tabShares.Text = "Shares";
             this.tabShares.ToolTipText = "Browse configured media shares (file mode)";
             this.tabShares.UseVisualStyleBackColor = true;
-            // 
+            //
             // splitContainer1
-            // 
+            //
             this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.splitContainer1.Location = new System.Drawing.Point(0, 6);
             this.splitContainer1.Name = "splitContainer1";
-            // 
+            //
             // splitContainer1.Panel1
-            // 
+            //
             this.splitContainer1.Panel1.Controls.Add(this.cbShareType);
             this.splitContainer1.Panel1.Controls.Add(this.tvMediaShares);
-            // 
+            //
             // splitContainer1.Panel2
-            // 
+            //
             this.splitContainer1.Panel2.Controls.Add(this.lvDirectorySongs);
             this.splitContainer1.Size = new System.Drawing.Size(514, 418);
             this.splitContainer1.SplitterDistance = 162;
             this.splitContainer1.TabIndex = 6;
-            // 
+            //
             // cbShareType
-            // 
+            //
             this.cbShareType.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
@@ -308,9 +311,9 @@
             this.cbShareType.TabIndex = 6;
             this.cbShareType.MouseHover += new System.EventHandler(this.cbShareType_MouseHover);
             this.cbShareType.SelectedIndexChanged += new System.EventHandler(this.cbShareType_SelectedIndexChanged);
-            // 
+            //
             // tvMediaShares
-            // 
+            //
             this.tvMediaShares.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
@@ -326,9 +329,9 @@
             this.tvMediaShares.TabIndex = 1;
             this.tvMediaShares.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ShowSongs);
             this.tvMediaShares.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SetTreeViewSelection);
-            // 
+            //
             // lvDirectorySongs
-            // 
+            //
             this.lvDirectorySongs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
@@ -342,9 +345,9 @@
             this.lvDirectorySongs.UseCompatibleStateImageBehavior = false;
             this.lvDirectorySongs.View = System.Windows.Forms.View.List;
             this.lvDirectorySongs.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.PlaySelectedFiles);
-            // 
+            //
             // tabArtists
-            // 
+            //
             this.tabArtists.Controls.Add(this.splitContainer2);
             this.tabArtists.Location = new System.Drawing.Point(4, 22);
             this.tabArtists.Name = "tabArtists";
@@ -353,37 +356,37 @@
             this.tabArtists.TabIndex = 1;
             this.tabArtists.Text = "Artists";
             this.tabArtists.UseVisualStyleBackColor = true;
-            // 
+            //
             // splitContainer2
-            // 
+            //
             this.splitContainer2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.splitContainer2.Location = new System.Drawing.Point(1, 3);
             this.splitContainer2.Name = "splitContainer2";
-            // 
+            //
             // splitContainer2.Panel1
-            // 
+            //
             this.splitContainer2.Panel1.Controls.Add(this.tbSearchArtist);
             this.splitContainer2.Panel1.Controls.Add(this.tvArtists);
-            // 
+            //
             // splitContainer2.Panel2
-            // 
+            //
             this.splitContainer2.Panel2.Controls.Add(this.lvArtistSongs);
             this.splitContainer2.Size = new System.Drawing.Size(514, 418);
             this.splitContainer2.SplitterDistance = 162;
             this.splitContainer2.TabIndex = 7;
-            // 
+            //
             // tbSearchArtist
-            // 
+            //
             this.tbSearchArtist.Location = new System.Drawing.Point(0, 0);
             this.tbSearchArtist.Name = "tbSearchArtist";
             this.tbSearchArtist.Size = new System.Drawing.Size(162, 20);
             this.tbSearchArtist.TabIndex = 13;
             this.tbSearchArtist.TextChanged += new System.EventHandler(this.tbSearchArtist_TextChanged);
-            // 
+            //
             // tvArtists
-            // 
+            //
             this.tvArtists.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
@@ -400,9 +403,9 @@
             this.tvArtists.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ShowSongs);
             this.tvArtists.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SetTreeViewSelection);
             this.tvArtists.MouseHover += new System.EventHandler(this.SetFocus);
-            // 
+            //
             // lvArtistSongs
-            // 
+            //
             this.lvArtistSongs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
@@ -416,9 +419,9 @@
             this.lvArtistSongs.UseCompatibleStateImageBehavior = false;
             this.lvArtistSongs.View = System.Windows.Forms.View.List;
             this.lvArtistSongs.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.PlaySelectedFiles);
-            // 
+            //
             // tabAlbums
-            // 
+            //
             this.tabAlbums.Controls.Add(this.splitContainer3);
             this.tabAlbums.Location = new System.Drawing.Point(4, 22);
             this.tabAlbums.Name = "tabAlbums";
@@ -426,37 +429,37 @@
             this.tabAlbums.TabIndex = 2;
             this.tabAlbums.Text = "Albums";
             this.tabAlbums.UseVisualStyleBackColor = true;
-            // 
+            //
             // splitContainer3
-            // 
+            //
             this.splitContainer3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.splitContainer3.Location = new System.Drawing.Point(1, 3);
             this.splitContainer3.Name = "splitContainer3";
-            // 
+            //
             // splitContainer3.Panel1
-            // 
+            //
             this.splitContainer3.Panel1.Controls.Add(this.tbSearchAlbum);
             this.splitContainer3.Panel1.Controls.Add(this.tvAlbums);
-            // 
+            //
             // splitContainer3.Panel2
-            // 
+            //
             this.splitContainer3.Panel2.Controls.Add(this.lvAlbumSongs);
             this.splitContainer3.Size = new System.Drawing.Size(514, 418);
             this.splitContainer3.SplitterDistance = 162;
             this.splitContainer3.TabIndex = 8;
-            // 
+            //
             // tbSearchAlbum
-            // 
+            //
             this.tbSearchAlbum.Location = new System.Drawing.Point(0, 0);
             this.tbSearchAlbum.Name = "tbSearchAlbum";
             this.tbSearchAlbum.Size = new System.Drawing.Size(162, 20);
             this.tbSearchAlbum.TabIndex = 14;
             this.tbSearchAlbum.TextChanged += new System.EventHandler(this.tbSearchAlbum_TextChanged);
-            // 
+            //
             // tvAlbums
-            // 
+            //
             this.tvAlbums.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
@@ -473,9 +476,9 @@
             this.tvAlbums.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ShowSongs);
             this.tvAlbums.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SetTreeViewSelection);
             this.tvAlbums.MouseHover += new System.EventHandler(this.SetFocus);
-            // 
+            //
             // lvAlbumSongs
-            // 
+            //
             this.lvAlbumSongs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
@@ -489,9 +492,9 @@
             this.lvAlbumSongs.UseCompatibleStateImageBehavior = false;
             this.lvAlbumSongs.View = System.Windows.Forms.View.List;
             this.lvAlbumSongs.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.PlaySelectedFiles);
-            // 
+            //
             // tabSongs
-            // 
+            //
             this.tabSongs.Controls.Add(this.bSearchSong);
             this.tabSongs.Controls.Add(this.lvSongs);
             this.tabSongs.Controls.Add(this.tbSearchSong);
@@ -501,9 +504,9 @@
             this.tabSongs.TabIndex = 3;
             this.tabSongs.Text = "Songs";
             this.tabSongs.UseVisualStyleBackColor = true;
-            // 
+            //
             // bSearchSong
-            // 
+            //
             this.bSearchSong.Location = new System.Drawing.Point(439, 3);
             this.bSearchSong.Name = "bSearchSong";
             this.bSearchSong.Size = new System.Drawing.Size(75, 23);
@@ -511,9 +514,9 @@
             this.bSearchSong.Text = "Search";
             this.bSearchSong.UseVisualStyleBackColor = true;
             this.bSearchSong.Click += new System.EventHandler(this.bSearchSong_Click);
-            // 
+            //
             // lvSongs
-            // 
+            //
             this.lvSongs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
@@ -527,17 +530,17 @@
             this.lvSongs.UseCompatibleStateImageBehavior = false;
             this.lvSongs.View = System.Windows.Forms.View.List;
             this.lvSongs.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.PlaySelectedFiles);
-            // 
+            //
             // tbSearchSong
-            // 
+            //
             this.tbSearchSong.Location = new System.Drawing.Point(3, 3);
             this.tbSearchSong.Name = "tbSearchSong";
             this.tbSearchSong.Size = new System.Drawing.Size(430, 20);
             this.tbSearchSong.TabIndex = 9;
             this.tbSearchSong.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbSearchSong_KeyUp);
-            // 
+            //
             // tabVideos
-            // 
+            //
             this.tabVideos.ContextMenuStrip = this.cmsVideo;
             this.tabVideos.Controls.Add(this.lvVideos);
             this.tabVideos.Controls.Add(this.tbSearchVideo);
@@ -547,9 +550,9 @@
             this.tabVideos.TabIndex = 4;
             this.tabVideos.Text = "Video";
             this.tabVideos.UseVisualStyleBackColor = true;
-            // 
+            //
             // cmsVideo
-            // 
+            //
             this.cmsVideo.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsiPlayVideo,
             this.tsiEnqueueVideo,
@@ -558,56 +561,56 @@
             this.tsiUpdateLibrary3});
             this.cmsVideo.Name = "cmsFiles";
             this.cmsVideo.Size = new System.Drawing.Size(154, 98);
-            // 
+            //
             // tsiPlayVideo
-            // 
+            //
             this.tsiPlayVideo.Name = "tsiPlayVideo";
             this.tsiPlayVideo.Size = new System.Drawing.Size(153, 22);
             this.tsiPlayVideo.Text = "Play";
             this.tsiPlayVideo.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PlaySelectedFiles);
-            // 
+            //
             // tsiEnqueueVideo
-            // 
+            //
             this.tsiEnqueueVideo.Name = "tsiEnqueueVideo";
             this.tsiEnqueueVideo.Size = new System.Drawing.Size(153, 22);
             this.tsiEnqueueVideo.Text = "Enqueue";
             this.tsiEnqueueVideo.MouseUp += new System.Windows.Forms.MouseEventHandler(this.EnqueSelectedFiles);
-            // 
+            //
             // tsiInfoVideo
-            // 
+            //
             this.tsiInfoVideo.Name = "tsiInfoVideo";
             this.tsiInfoVideo.Size = new System.Drawing.Size(153, 22);
             this.tsiInfoVideo.Text = "Information";
             this.tsiInfoVideo.MouseUp += new System.Windows.Forms.MouseEventHandler(this.InfoSelectedFiles);
-            // 
+            //
             // toolStripSeparator4
-            // 
+            //
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(150, 6);
-            // 
+            //
             // tsiUpdateLibrary3
-            // 
+            //
             this.tsiUpdateLibrary3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem4,
             this.toolStripMenuItem5});
             this.tsiUpdateLibrary3.Name = "tsiUpdateLibrary3";
             this.tsiUpdateLibrary3.Size = new System.Drawing.Size(153, 22);
             this.tsiUpdateLibrary3.Text = "Update library";
-            // 
+            //
             // toolStripMenuItem4
-            // 
+            //
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
             this.toolStripMenuItem4.Size = new System.Drawing.Size(111, 22);
             this.toolStripMenuItem4.Text = "Music";
-            // 
+            //
             // toolStripMenuItem5
-            // 
+            //
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
             this.toolStripMenuItem5.Size = new System.Drawing.Size(111, 22);
             this.toolStripMenuItem5.Text = "Video";
-            // 
+            //
             // lvVideos
-            // 
+            //
             this.lvVideos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
@@ -626,32 +629,32 @@
             this.lvVideos.TabIndex = 12;
             this.lvVideos.UseCompatibleStateImageBehavior = false;
             this.lvVideos.View = System.Windows.Forms.View.Details;
-            // 
+            //
             // nameVideo
-            // 
+            //
             this.nameVideo.Text = "Video";
             this.nameVideo.Width = 418;
-            // 
+            //
             // yearVideo
-            // 
+            //
             this.yearVideo.Text = "Year";
             this.yearVideo.Width = 76;
-            // 
+            //
             // IMDB_ID
-            // 
+            //
             this.IMDB_ID.Text = "IMDB ID";
             this.IMDB_ID.Width = 70;
-            // 
+            //
             // tbSearchVideo
-            // 
+            //
             this.tbSearchVideo.Location = new System.Drawing.Point(10, 3);
             this.tbSearchVideo.Name = "tbSearchVideo";
             this.tbSearchVideo.Size = new System.Drawing.Size(405, 20);
             this.tbSearchVideo.TabIndex = 0;
             this.tbSearchVideo.TextChanged += new System.EventHandler(this.tbSearchVideo_TextChanged_1);
-            // 
+            //
             // MediaBrowserF1
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(523, 450);
@@ -691,57 +694,57 @@
 
         #endregion
 
-        private System.Windows.Forms.ImageList ilFiletypes;
-        private System.Windows.Forms.ContextMenuStrip cmsFolder;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem tsiCollapseAll;
-        private System.Windows.Forms.ToolStripMenuItem tsiPlayRecursive;
-        private System.Windows.Forms.ToolStripMenuItem tsiEnqueueRecursive;
-        private System.Windows.Forms.ContextMenuStrip cmsSongs;
-        private System.Windows.Forms.ToolStripMenuItem tsiEnqueueFiles;
-        private System.Windows.Forms.ToolStripMenuItem tsiPlayFiles;
-        private System.Windows.Forms.TabControl tcMediaBrowser;
-        private System.Windows.Forms.TabPage tabShares;
-        private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.TreeView tvMediaShares;
-        private System.Windows.Forms.ListView lvDirectorySongs;
-        private System.Windows.Forms.TabPage tabArtists;
-        private System.Windows.Forms.TabPage tabAlbums;
-        private System.Windows.Forms.TabPage tabSongs;
-        private System.Windows.Forms.TextBox tbSearchSong;
-        private System.Windows.Forms.ComboBox cbShareType;
-        private System.Windows.Forms.SplitContainer splitContainer2;
-        private System.Windows.Forms.TreeView tvArtists;
-        private System.Windows.Forms.ListView lvArtistSongs;
-        private System.Windows.Forms.SplitContainer splitContainer3;
-        private System.Windows.Forms.TreeView tvAlbums;
-        private System.Windows.Forms.ListView lvAlbumSongs;
-        private System.Windows.Forms.TextBox tbSearchArtist;
-        private System.Windows.Forms.TextBox tbSearchAlbum;
-        private System.Windows.Forms.ToolStripMenuItem tsiRefresh;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripMenuItem tsiUpdateLibrary;
-        private System.Windows.Forms.ToolStripMenuItem tsiUpdateMusicLibrary1;
-        private System.Windows.Forms.ToolStripMenuItem tsiUpdateVideoLibrary1;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripMenuItem tsiUpdateLibrary2;
-        private System.Windows.Forms.ToolStripMenuItem tsiUpdateMusicLibrary2;
-        private System.Windows.Forms.ToolStripMenuItem tsiUpdateVideoLibrary2;
-        private System.Windows.Forms.ListView lvSongs;
-        private System.Windows.Forms.Button bSearchSong;
-        private System.Windows.Forms.TabPage tabVideos;
-        private System.Windows.Forms.TextBox tbSearchVideo;
-        private System.Windows.Forms.ListView lvVideos;
-        private System.Windows.Forms.ColumnHeader nameVideo;
-        private System.Windows.Forms.ColumnHeader yearVideo;
-        private System.Windows.Forms.ColumnHeader IMDB_ID;
-        private System.Windows.Forms.ContextMenuStrip cmsVideo;
-        private System.Windows.Forms.ToolStripMenuItem tsiPlayVideo;
-        private System.Windows.Forms.ToolStripMenuItem tsiEnqueueVideo;
-        private System.Windows.Forms.ToolStripMenuItem tsiInfoVideo;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-        private System.Windows.Forms.ToolStripMenuItem tsiUpdateLibrary3;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
+        private ImageList ilFiletypes;
+        private ContextMenuStrip cmsFolder;
+        private ToolStripSeparator toolStripSeparator1;
+        private ToolStripMenuItem tsiCollapseAll;
+        private ToolStripMenuItem tsiPlayRecursive;
+        private ToolStripMenuItem tsiEnqueueRecursive;
+        private ContextMenuStrip cmsSongs;
+        private ToolStripMenuItem tsiEnqueueFiles;
+        private ToolStripMenuItem tsiPlayFiles;
+        private TabControl tcMediaBrowser;
+        private TabPage tabShares;
+        private SplitContainer splitContainer1;
+        private TreeView tvMediaShares;
+        private ListView lvDirectorySongs;
+        private TabPage tabArtists;
+        private TabPage tabAlbums;
+        private TabPage tabSongs;
+        private TextBox tbSearchSong;
+        private ComboBox cbShareType;
+        private SplitContainer splitContainer2;
+        private TreeView tvArtists;
+        private ListView lvArtistSongs;
+        private SplitContainer splitContainer3;
+        private TreeView tvAlbums;
+        private ListView lvAlbumSongs;
+        private TextBox tbSearchArtist;
+        private TextBox tbSearchAlbum;
+        private ToolStripMenuItem tsiRefresh;
+        private ToolStripSeparator toolStripSeparator2;
+        private ToolStripMenuItem tsiUpdateLibrary;
+        private ToolStripMenuItem tsiUpdateMusicLibrary1;
+        private ToolStripMenuItem tsiUpdateVideoLibrary1;
+        private ToolStripSeparator toolStripSeparator3;
+        private ToolStripMenuItem tsiUpdateLibrary2;
+        private ToolStripMenuItem tsiUpdateMusicLibrary2;
+        private ToolStripMenuItem tsiUpdateVideoLibrary2;
+        private ListView lvSongs;
+        private Button bSearchSong;
+        private TabPage tabVideos;
+        private TextBox tbSearchVideo;
+        private ListView lvVideos;
+        private ColumnHeader nameVideo;
+        private ColumnHeader yearVideo;
+        private ColumnHeader IMDB_ID;
+        private ContextMenuStrip cmsVideo;
+        private ToolStripMenuItem tsiPlayVideo;
+        private ToolStripMenuItem tsiEnqueueVideo;
+        private ToolStripMenuItem tsiInfoVideo;
+        private ToolStripSeparator toolStripSeparator4;
+        private ToolStripMenuItem tsiUpdateLibrary3;
+        private ToolStripMenuItem toolStripMenuItem4;
+        private ToolStripMenuItem toolStripMenuItem5;
     }
 }
