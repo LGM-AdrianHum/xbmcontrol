@@ -1,11 +1,14 @@
-﻿namespace XBMControl
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace XBMControl
 {
     partial class VolumeControlF1
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -34,9 +37,9 @@
             this.bMute = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tbVolumeSysTray)).BeginInit();
             this.SuspendLayout();
-            // 
+            //
             // tbVolumeSysTray
-            // 
+            //
             this.tbVolumeSysTray.AutoSize = false;
             this.tbVolumeSysTray.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(245)))), ((int)(((byte)(242)))));
             this.tbVolumeSysTray.Location = new System.Drawing.Point(3, -2);
@@ -51,14 +54,14 @@
             this.tbVolumeSysTray.LostFocus += new System.EventHandler(this.tbVolumeSysTray_LostFocus);
             this.tbVolumeSysTray.MouseHover += new System.EventHandler(this.tbVolumeSysTray_MouseHover);
             this.tbVolumeSysTray.MouseUp += new System.Windows.Forms.MouseEventHandler(this.tbVolumeSysTray_MouseUp);
-            // 
+            //
             // timer1
-            // 
+            //
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
+            //
             // bMute
-            // 
+            //
             this.bMute.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.bMute.BackColor = System.Drawing.Color.Transparent;
             this.bMute.BackgroundImage = global::XBMControl.Properties.Resources.button_mute;
@@ -83,9 +86,9 @@
             this.bMute.MouseHover += new System.EventHandler(this.bMute_MouseHover);
             this.bMute.MouseUp += new System.Windows.Forms.MouseEventHandler(this.bMute_MouseUp);
             this.bMute.MouseEnter += new System.EventHandler(this.bMute_MouseEnter);
-            // 
+            //
             // VolumeControlF1
-            // 
+            //
             this.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
@@ -116,9 +119,9 @@
 
         #endregion
 
-        private System.Windows.Forms.TrackBar tbVolumeSysTray;
-        private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Button bMute;
+        private TrackBar tbVolumeSysTray;
+        private Timer timer1;
+        private Button bMute;
 
     }
 }

@@ -1,47 +1,43 @@
-﻿// ------------------------------------------------------------------------
-//    XBMControl - A compact remote controller for XBMC (.NET 3.5)
-//    Copyright (C) 2008  Bram van Oploo (bramvano@gmail.com)
+﻿// Author: Hum, Adrian
+// Project: XBMControl/XBMControl/XBMControl.Language.cs
 //
-//    This program is free software: you can redistribute it and/or modify
-//    it under the terms of the GNU General Public License as published by
-//    the Free Software Foundation, either version 3 of the License, or
-//    (at your option) any later version.
-//
-//    This program is distributed in the hope that it will be useful,
-//    but WITHOUT ANY WARRANTY; without even the implied warranty of
-//    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//    GNU General Public License for more details.
-//
-//    You should have received a copy of the GNU General Public License
-//    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-// ------------------------------------------------------------------------
+// Created  Date: 2015-10-20  8:59 AM
+// Modified Date: 2015-10-20  9:42 AM
+
+#region Using Directives
 
 using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Xml;
 using System.IO;
+using System.Security;
+using System.Text;
 using System.Windows.Forms;
-using System.Resources;
+using System.Xml;
+using System.Xml.XPath;
+using XBMControl.Properties;
 
-namespace XBMControl.Language
-{
-    public class XBMCLanguage
-    {
+#endregion
+
+namespace XBMControl.Language {
+    public class XbmcLanguage {
+        private readonly DirectoryInfo _execPath;
         //private string languageFilePath;
-        private XmlDocument languageFile;
-        private XmlNode languageNode;
-        private DirectoryInfo languageDir;
+        private readonly XmlDocument _languageFile;
+        private XmlNode _languageNode;
 
-        public XBMCLanguage()
-        {
-            languageFile   = new XmlDocument();
-            languageDir    = new DirectoryInfo(Path.GetDirectoryName(Application.ExecutablePath).ToString() + "\\language\\");
+        /// <exception cref="SecurityException">The caller does not have the required permission. </exception>
+        public XbmcLanguage() {
+            _languageFile = new XmlDocument();
+            var directoryName = Path.GetDirectoryName(Application.ExecutablePath);
+
+            try { if (directoryName != null)
+                _execPath = new DirectoryInfo(directoryName + "\\language\\"); }
+            catch (ArgumentException) {
+                //
+            }
         }
 
-        public string[] GetAvailableLanguages()
-        {
-            string[] languages = new string[4];
+        public string[] GetAvailableLanguages() {
+            var languages = new string[4];
 
             languages[0] = "english";
             languages[1] = "francais";
@@ -50,29 +46,45 @@ namespace XBMControl.Language
             return languages;
         }
 
-        public void SetLanguage(string language)
-        {
-            string tempString = null;
+        /// <exception cref="XmlException">
+        ///     There is a load or parse error in the XML. In this case, a
+        ///     <see cref="T:System.IO.FileNotFoundException" /> is raised.
+        /// </exception>
+        /// <exception cref="ArgumentNullException"><paramref name="buffer" /> is null. </exception>
+        public void SetLanguage(string language) {
+            string tempString;
 
-            if (language == "english")
-                tempString = global::XBMControl.Properties.Resources.english;
-            else if (language == "francais")
-                tempString = global::XBMControl.Properties.Resources.francais;
-            else if (language == "nederlands")
-                tempString = global::XBMControl.Properties.Resources.nederlands;
-            else if (language == "german")
-                tempString = global::XBMControl.Properties.Resources.german;
-            else
-                tempString = global::XBMControl.Properties.Resources.english;
+            switch (language) {
+                case "english":
+                    tempString = Resources.english;
+                    break;
+                case "francais":
+                    tempString = Resources.francais;
+                    break;
+                case "nederlands":
+                    tempString = Resources.nederlands;
+                    break;
+                case "german":
+                    tempString = Resources.german;
+                    break;
+                default:
+                    tempString = Resources.english;
+                    break;
+            }
 
-            MemoryStream stream = new MemoryStream(Encoding.UTF8.GetBytes(tempString));
-            languageFile.Load(stream);
+            try {
+                var stream = new MemoryStream(Encoding.UTF8.GetBytes(tempString));
+                _languageFile.Load(stream);
+            }
+            catch (EncoderFallbackException) {
+                //
+            }
         }
 
-        public string GetString(string node)
-        {
-            languageNode = languageFile.DocumentElement.SelectSingleNode("/language/" + node);
-            return languageNode.InnerText.Replace("\\n", "\n");
+        /// <exception cref="XPathException">The XPath expression contains a prefix. </exception>
+        public string GetString(string node) {
+            if (_languageFile.DocumentElement != null) _languageNode = _languageFile.DocumentElement.SelectSingleNode("/language/" + node);
+            return _languageNode != null ? _languageNode.InnerText.Replace("\\n", "\n") : string.Empty;
         }
     }
 }

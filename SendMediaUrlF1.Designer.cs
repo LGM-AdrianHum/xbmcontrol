@@ -1,11 +1,14 @@
-﻿namespace XBMControl
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace XBMControl
 {
     partial class SendMediaUrl
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -32,17 +35,17 @@
             this.lMediaUrl = new System.Windows.Forms.Label();
             this.bSendMediaUrl = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
+            //
             // tbMediaUrl
-            // 
+            //
             this.tbMediaUrl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(95)))), ((int)(((byte)(95)))));
             this.tbMediaUrl.Location = new System.Drawing.Point(44, 12);
             this.tbMediaUrl.Name = "tbMediaUrl";
             this.tbMediaUrl.Size = new System.Drawing.Size(176, 21);
             this.tbMediaUrl.TabIndex = 0;
-            // 
+            //
             // lMediaUrl
-            // 
+            //
             this.lMediaUrl.AutoSize = true;
             this.lMediaUrl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(95)))), ((int)(((byte)(95)))));
             this.lMediaUrl.Location = new System.Drawing.Point(12, 15);
@@ -50,9 +53,9 @@
             this.lMediaUrl.Size = new System.Drawing.Size(26, 13);
             this.lMediaUrl.TabIndex = 1;
             this.lMediaUrl.Text = "URL";
-            // 
+            //
             // bSendMediaUrl
-            // 
+            //
             this.bSendMediaUrl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(95)))), ((int)(((byte)(95)))));
             this.bSendMediaUrl.Location = new System.Drawing.Point(226, 10);
             this.bSendMediaUrl.Name = "bSendMediaUrl";
@@ -61,9 +64,9 @@
             this.bSendMediaUrl.Text = "Send";
             this.bSendMediaUrl.UseVisualStyleBackColor = true;
             this.bSendMediaUrl.Click += new System.EventHandler(this.bSendMediaUrl_Click);
-            // 
+            //
             // SendMediaUrl
-            // 
+            //
             this.AcceptButton = this.bSendMediaUrl;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -84,8 +87,8 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox tbMediaUrl;
-        private System.Windows.Forms.Label lMediaUrl;
-        private System.Windows.Forms.Button bSendMediaUrl;
+        private TextBox tbMediaUrl;
+        private Label lMediaUrl;
+        private Button bSendMediaUrl;
     }
 }

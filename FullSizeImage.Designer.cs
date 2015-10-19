@@ -1,11 +1,13 @@
-﻿namespace XBMControl
+﻿using System.ComponentModel;
+
+namespace XBMControl
 {
     partial class FullSizeImageF1
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -28,11 +30,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FullSizeImageF1));
+            var resources = new System.ComponentModel.ComponentResourceManager(typeof(FullSizeImageF1));
             this.SuspendLayout();
-            // 
+            //
             // FullSizeImageF1
-            // 
+            //
             this.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace XBMControl
@@ -14,8 +13,8 @@ namespace XBMControl
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            
-            MainForm mainForm = new MainForm();
+
+            var mainForm = new MainForm();
             if (mainForm != null && !mainForm.IsDisposed)
                 Application.Run(mainForm);
         }
