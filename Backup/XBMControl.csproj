@@ -1,0 +1,441 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6076CB11-37C2-432D-8E23-D00A27A65B94}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XBMControl</RootNamespace>
+    <AssemblyName>XBMControl</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ApplicationIcon>XBMC.ico</ApplicationIcon>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkSubset>
+    </TargetFrameworkSubset>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <OutputType>WinExe</OutputType>
+    <AssemblyName>XBMControl</AssemblyName>
+    <RootNamespace>XBMControl</RootNamespace>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+    <ApplicationIcon>XBMC.ico</ApplicationIcon>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <OutputType>WinExe</OutputType>
+    <AssemblyName>XBMControl</AssemblyName>
+    <DebugSymbols>true</DebugSymbols>
+    <RootNamespace>XBMControl</RootNamespace>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+    <ApplicationIcon>XBMC.ico</ApplicationIcon>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Animations.cs" />
+    <Compile Include="ConfigurationF1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfigurationF1.Designer.cs">
+      <DependentUpon>ConfigurationF1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FullSizeImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FullSizeImage.Designer.cs">
+      <DependentUpon>FullSizeImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MediaBrowserF1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MediaBrowserF1.Designer.cs">
+      <DependentUpon>MediaBrowserF1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NavigatorF1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NavigatorF1.Designer.cs">
+      <DependentUpon>NavigatorF1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PlaylistF1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PlaylistF1.Designer.cs">
+      <DependentUpon>PlaylistF1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PlayStatusF1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PlayStatusF1.Designer.cs">
+      <DependentUpon>PlayStatusF1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ConfigurationF1.resx">
+      <DependentUpon>ConfigurationF1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FullSizeImage.resx">
+      <DependentUpon>FullSizeImage.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MediaBrowserF1.resx">
+      <DependentUpon>MediaBrowserF1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NavigatorF1.resx">
+      <DependentUpon>NavigatorF1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlaylistF1.resx">
+      <DependentUpon>PlaylistF1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlayStatusF1.resx">
+      <DependentUpon>PlayStatusF1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SendMediaUrlF1.resx">
+      <DependentUpon>SendMediaUrlF1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VideoInfoF1.resx">
+      <DependentUpon>VideoInfoF1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VolumeControlF1.resx">
+      <DependentUpon>VolumeControlF1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XBMControlF1.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>XBMControlF1.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="App.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="SendMediaUrlF1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SendMediaUrlF1.Designer.cs">
+      <DependentUpon>SendMediaUrlF1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
+    <Compile Include="VideoInfoF1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VideoInfoF1.Designer.cs">
+      <DependentUpon>VideoInfoF1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VolumeControlF1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VolumeControlF1.Designer.cs">
+      <DependentUpon>VolumeControlF1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XBMC.Library\XBMC.Media.cs" />
+    <Compile Include="XBMC.Library\XBMC.Status.cs" />
+    <Compile Include="XBMC.Library\XBMC.NowPlaying.cs" />
+    <Compile Include="XBMC.Library\XBMC.Controls.cs" />
+    <Compile Include="XBMC.Library\XBMC.Playlist.cs" />
+    <Compile Include="XBMC.Library\XBMC.Database.cs" />
+    <Compile Include="XBMC.Library\XBMC.Communicator.cs" />
+    <Compile Include="XBMC.Library\XBMC.Video.cs" />
+    <Compile Include="XBMControl.Language.cs" />
+    <Compile Include="XBMControlF1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XBMControlF1.Designer.cs">
+      <DependentUpon>XBMControlF1.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\audio-cd-32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pictures-32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\video-32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\XBMClogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mute-32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mute-24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lastfm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lastfm1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\XBMC.Communicator.XBMCcomm.datasource" />
+    <None Include="Resources\previous-16x16.png" />
+    <None Include="Resources\next-16x16.png" />
+    <None Include="Resources\play2-16x16.png" />
+    <None Include="Resources\pause-16x16.png" />
+    <None Include="Resources\stop-16x16.png" />
+    <None Include="Resources\exit-16x16.png" />
+    <None Include="Resources\show-16x16.png" />
+    <None Include="Resources\hide-16x16.png" />
+    <None Include="Resources\mute-16x16.png" />
+    <None Include="Resources\configure-16x16.png" />
+    <None Include="Resources\folder-16x16.png" />
+    <None Include="Resources\shutdown-16x16.png" />
+    <None Include="Resources\restart-16x16.png" />
+    <None Include="Resources\reboot-16x16.png" />
+    <None Include="Resources\arrow_down - 12x11.gif" />
+    <None Include="Resources\save-16x16.png" />
+    <None Include="Resources\image-16x16.png" />
+    <None Include="Resources\XBMClogo 90x90.png" />
+    <None Include="Resources\last.fm_16x16.jpg" />
+    <None Include="Resources\previous.png" />
+    <None Include="Resources\play.png" />
+    <None Include="Resources\pause.png" />
+    <None Include="Resources\stop.png" />
+    <None Include="Resources\next.png" />
+    <None Include="Resources\background_controls.png" />
+    <None Include="Resources\openContextMenuArrow.png" />
+    <None Include="Resources\openContextMenuArrow1.png" />
+    <None Include="Resources\toolbar.png" />
+    <None Include="Resources\MainFormBackground.png" />
+    <None Include="Resources\lastfm2.png" />
+    <None Include="Resources\toolbar1.png" />
+    <None Include="Resources\MainFormBackground1.png" />
+    <None Include="Resources\background_controls1.png" />
+    <None Include="Resources\background_controls2.png" />
+    <None Include="Resources\close.png" />
+    <None Include="Resources\minimize.png" />
+    <None Include="Resources\close_hover.png" />
+    <None Include="Resources\minimize_hover.png" />
+    <None Include="Resources\minimize1.png" />
+    <None Include="Resources\close1.png" />
+    <None Include="Resources\close1_hover.png" />
+    <None Include="Resources\minimize1_hover.png" />
+    <None Include="Resources\background_details.png" />
+    <None Include="Resources\background_details1.png" />
+    <None Include="Resources\background_details2.png" />
+    <None Include="Resources\background_details3.png" />
+    <None Include="Resources\XBMC.ico" />
+    <None Include="Resources\background_pTime.png" />
+    <None Include="Resources\background_pTime1.png" />
+    <None Include="Resources\MainFormBackground2.png" />
+    <None Include="Resources\button_previous.png" />
+    <None Include="Resources\button_play.png" />
+    <None Include="Resources\button_pause.png" />
+    <None Include="Resources\button_stop.png" />
+    <None Include="Resources\button_next.png" />
+    <None Include="Resources\button_open.png" />
+    <None Include="Resources\button_mute.png" />
+    <None Include="Resources\button_previous_hover.png" />
+    <None Include="Resources\button_previous_click.png" />
+    <None Include="Resources\button_play_hover.png" />
+    <None Include="Resources\button_play_click.png" />
+    <None Include="Resources\button_pause_hover.png" />
+    <None Include="Resources\button_pause_hover1.png" />
+    <None Include="Resources\button_pause_click.png" />
+    <None Include="Resources\button_stop_hover.png" />
+    <None Include="Resources\button_stop_click.png" />
+    <None Include="Resources\button_next_hover.png" />
+    <None Include="Resources\button_next_click.png" />
+    <None Include="Resources\button_open_hover.png" />
+    <None Include="Resources\button_open_click.png" />
+    <None Include="Resources\button_mute_hover.png" />
+    <None Include="Resources\button_mute_click.png" />
+    <None Include="Resources\last.fm_16x161.jpg" />
+    <None Include="Resources\lastfm_32x32.png" />
+    <None Include="Resources\send_media-16x16.png" />
+    <None Include="Resources\url-16x16.png" />
+    <None Include="Resources\lastfm_hate.png" />
+    <None Include="Resources\lastfm_love.png" />
+    <None Include="Resources\lastfm_love1.png" />
+    <None Include="Resources\lastfm_hate1.png" />
+    <None Include="Resources\lastfm_hate2.png" />
+    <None Include="Resources\lastfm_hate3.png" />
+    <None Include="Resources\lastfm_hate4.png" />
+    <None Include="Resources\lastfm_hate5.png" />
+    <None Include="Resources\button_repeat.png" />
+    <None Include="Resources\button_repeat_hover.png" />
+    <None Include="Resources\button_repeat_click.png" />
+    <None Include="Resources\button_shuffle_hover.png" />
+    <None Include="Resources\button_shuffle_click.png" />
+    <None Include="Resources\button_shuffle.png" />
+    <None Include="Resources\button_partymode.png" />
+    <None Include="Resources\button_partymode_hover.png" />
+    <None Include="Resources\button_partymode_click.png" />
+    <None Include="Resources\button_clear.png" />
+    <None Include="Resources\button_playlist.png" />
+    <None Include="Resources\button_playlist_hover.png" />
+    <None Include="Resources\button_playlist_click.png" />
+    <None Include="Resources\button_remote_hover.png" />
+    <None Include="Resources\button_remote.png" />
+    <None Include="Resources\button_remote_click.png" />
+    <None Include="Resources\button_undo.png" />
+    <None Include="Resources\button_up.png" />
+    <None Include="Resources\button_back.png" />
+    <None Include="Resources\button_down.png" />
+    <None Include="Resources\button_forward.PNG" />
+    <None Include="Resources\button_select.png" />
+    <None Include="Resources\nederlands.xml" />
+    <None Include="Resources\english.xml" />
+    <None Include="Resources\francais.xml" />
+    <None Include="Resources\navigator.PNG" />
+    <None Include="Resources\navigator_vol_up.png" />
+    <None Include="Resources\navigator_back.png" />
+    <None Include="Resources\navigator_down.png" />
+    <None Include="Resources\navigator_forward.png" />
+    <None Include="Resources\navigator_home.png" />
+    <None Include="Resources\navigator_left.png" />
+    <None Include="Resources\navigator_options.png" />
+    <None Include="Resources\navigator_play_pause.png" />
+    <None Include="Resources\navigator_rewind.png" />
+    <None Include="Resources\navigator_right.png" />
+    <None Include="Resources\navigator_select.png" />
+    <None Include="Resources\navigator_stop.png" />
+    <None Include="Resources\navigator_up.png" />
+    <None Include="Resources\navigator_vol_down.png" />
+    <None Include="Resources\button_exit_hover.png" />
+    <None Include="Resources\button_exit.png" />
+    <None Include="Resources\button_exit_click.png" />
+    <None Include="Resources\button_repeat_selected.png" />
+    <None Include="Resources\button_shuffle_selected.png" />
+    <None Include="Resources\button_partymode_selected.png" />
+    <None Include="Resources\navigator_previous.png" />
+    <None Include="Resources\navigator_next.png" />
+    <None Include="Resources\navigator_numpad_9.png" />
+    <None Include="Resources\navigator_numpad_0.png" />
+    <None Include="Resources\navigator_numpad_1.png" />
+    <None Include="Resources\navigator_numpad_2.png" />
+    <None Include="Resources\navigator_numpad_3.png" />
+    <None Include="Resources\navigator_numpad_4.png" />
+    <None Include="Resources\navigator_numpad_5.png" />
+    <None Include="Resources\navigator_numpad_6.png" />
+    <None Include="Resources\navigator_numpad_7.png" />
+    <None Include="Resources\navigator_numpad_8.png" />
+    <None Include="Resources\german.xml" />
+    <Content Include="XBMC.ico" />
+    <Content Include="Xbox.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\controls\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>rmdir "$(ProjectDir)$(OutDir)language" /s /q
+xcopy "$(ProjectDir)Resources\*.xml" "$(ProjectDir)$(OutDir)language\" /y
+
+if $(ConfigurationName) == Debug goto :exit
+
+rmdir "$(ProjectDir)XBMControl Setup\language" /s /q
+xcopy "$(ProjectDir)Resources\*.xml" "$(ProjectDir)XBMControl Setup\language\" /y
+
+rmdir "$(ProjectDir)XBMControl Portable\XBMControl\language" /s /q
+xcopy "$(ProjectDir)Resources\*.xml" "$(ProjectDir)XBMControl Portable\XBMControl\language\" /y
+
+:exit</PostBuildEvent>
+  </PropertyGroup>
+</Project>
