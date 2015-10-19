@@ -2,7 +2,7 @@
 // Project: XBMControl/XBMControl/XBMC.Video.cs
 //
 // Created  Date: 2015-10-20  8:59 AM
-// Modified Date: 2015-10-20  10:00 AM
+// Modified Date: 2015-10-20  10:07 AM
 
 #region Using Directives
 
@@ -23,6 +23,11 @@ namespace XBMC {
             _parent = p;
         }
 
+        /// <exception cref="ArgumentNullException"><paramref name="input" /> is null. </exception>
+        /// <exception cref="FormatException">
+        ///     The format item in <paramref name="mCrc" /> is invalid.-or- The index of a format
+        ///     item is not zero.
+        /// </exception>
         public string Hash(string input) {
             var mCrc = 0xffffffff;
             var encoding = new ASCIIEncoding();
