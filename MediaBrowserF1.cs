@@ -282,9 +282,10 @@ namespace XBMControl {
 
             var songPaths = _parent.Xbmc.Database.GetPathsByArtistId(artistId);
 
-            if (songPaths != null) {
-                for (var x = 0; x < songPaths.Length; x++)
-                    _parent.Xbmc.Playlist.AddFilesToPlaylist(songPaths[x]);
+            if (songPaths != null)
+            {
+                foreach (var t in songPaths)
+                    _parent.Xbmc.Playlist.AddFilesToPlaylist(t);
 
                 if (play) _parent.Xbmc.Playlist.PlaySong(0);
             }
@@ -298,9 +299,10 @@ namespace XBMControl {
 
             var songPaths = _parent.Xbmc.Database.GetPathsByAlbumId(albumId);
 
-            if (songPaths != null) {
-                for (var x = 0; x < songPaths.Length; x++)
-                    _parent.Xbmc.Playlist.AddFilesToPlaylist(songPaths[x]);
+            if (songPaths != null)
+            {
+                foreach (var t in songPaths)
+                    _parent.Xbmc.Playlist.AddFilesToPlaylist(t);
 
                 if (play) _parent.Xbmc.Playlist.PlaySong(0);
             }

@@ -13,6 +13,7 @@ using System.Net;
 
 #endregion
 
+// ReSharper disable once CheckNamespace
 namespace XBMC {
     public class XbmcNowPlaying {
         private readonly XbmcCommunicator _parent;

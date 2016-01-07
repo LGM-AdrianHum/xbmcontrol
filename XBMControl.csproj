@@ -94,6 +94,7 @@
     <Compile Include="FullSizeImage.Designer.cs">
       <DependentUpon>FullSizeImage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Language\XBMControl.Language.cs" />
     <Compile Include="MediaBrowserF1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,10 +113,10 @@
     <Compile Include="PlaylistF1.Designer.cs">
       <DependentUpon>PlaylistF1.cs</DependentUpon>
     </Compile>
-    <Compile Include="PlayStatusF1.cs">
+    <Compile Include="PlayStatusForm\PlayStatusF1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PlayStatusF1.Designer.cs">
+    <Compile Include="PlayStatusForm\PlayStatusF1.Designer.cs">
       <DependentUpon>PlayStatusF1.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -140,7 +141,7 @@
       <DependentUpon>PlaylistF1.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="PlayStatusF1.resx">
+    <EmbeddedResource Include="PlayStatusForm\PlayStatusF1.resx">
       <DependentUpon>PlayStatusF1.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -175,6 +176,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Settings.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -186,7 +188,6 @@
     <Compile Include="SendMediaUrlF1.Designer.cs">
       <DependentUpon>SendMediaUrlF1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Settings.cs" />
     <Compile Include="VideoInfoF1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -207,7 +208,6 @@
     <Compile Include="XBMC.Library\XBMC.Database.cs" />
     <Compile Include="XBMC.Library\XBMC.Communicator.cs" />
     <Compile Include="XBMC.Library\XBMC.Video.cs" />
-    <Compile Include="XBMControl.Language.cs" />
     <Compile Include="XBMControlF1.cs">
       <SubType>Form</SubType>
     </Compile>
