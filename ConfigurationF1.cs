@@ -25,7 +25,7 @@ namespace XBMControl {
         /// </exception>
         public ConfigurationF1(MainForm parentForm) {
             _parent = parentForm;
-            _parent.configFormOpened = true;
+            _parent.ConfigFormOpened = true;
 
             InitializeComponent();
             LoadConfiguration();
@@ -114,13 +114,13 @@ namespace XBMControl {
         }
 
         private bool IsValidIp() {
-            _parent.XBMC.SetIp(tbIp.Text);
+            _parent.Xbmc.SetIp(tbIp.Text);
 
             if (tbIp.Text == "") {
                 MessageBox.Show(_parent.Language.GetString("mainform/dialog/ipNotConfigured"), _parent.Language.GetString("mainform/dialog/ipNotConfiguredTitle"));
                 return false;
             }
-            if (_parent.XBMC.Status.IsConnected()) return true;
+            if (_parent.Xbmc.Status.IsConnected()) return true;
             return MessageBox.Show(_parent.Language.GetString("mainform/dialog/unableToConnect") + @"\n\n" + _parent.Language.GetString("mainform/dialog/proceedMessage"), _parent.Language.GetString("mainform/dialog/unableToConnectTitle"), MessageBoxButtons.YesNo) == DialogResult.Yes;
         }
 
@@ -176,7 +176,7 @@ namespace XBMControl {
         private void ConfigurationF1_FormClosed(object sender, FormClosedEventArgs e) {
             _parent.ApplySettings();
             _parent.UpdateData();
-            _parent.configFormOpened = false;
+            _parent.ConfigFormOpened = false;
         }
     }
 }
