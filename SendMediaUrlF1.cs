@@ -21,7 +21,7 @@ namespace XBMControl {
         }
 
         private void bSendMediaUrl_Click(object sender, EventArgs e) {
-            if (tbMediaUrl.Text != "") _parent.XBMC.Controls.PlayMedia(tbMediaUrl.Text);
+            if (tbMediaUrl.Text != "") _parent.Xbmc.Controls.PlayMedia(tbMediaUrl.Text);
             Close();
         }
     }

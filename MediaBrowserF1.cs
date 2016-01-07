@@ -14,7 +14,7 @@ using XBMControl.Properties;
 #endregion
 
 namespace XBMControl {
-    public partial class MediaBrowserF1 : Form {
+    public partial class MediaBrowserF1 {
         private readonly MainForm _parent;
         private bool _albumDirectorySelected;
         private bool _artistDirectorySelected;

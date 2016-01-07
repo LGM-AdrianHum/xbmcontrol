@@ -24,20 +24,20 @@ namespace XBMControl {
         }
 
         private void Initialize() {
-            if (_parent.XBMC.Status.IsConnected()) {
-                _connectedToXbmc = _parent.XBMC.Status.IsConnected();
-                _parent.XBMC.Status.Refresh();
+            if (_parent.Xbmc.Status.IsConnected()) {
+                _connectedToXbmc = _parent.Xbmc.Status.IsConnected();
+                _parent.Xbmc.Status.Refresh();
                 GetCurrentVolume();
                 timer1.Enabled = true;
-                if (_parent.XBMC.Status.IsMuted()) bMute.BackgroundImage = Resources.button_mute_click;
+                if (_parent.Xbmc.Status.IsMuted()) bMute.BackgroundImage = Resources.button_mute_click;
             }
             else
                 Close();
         }
 
         private void GetCurrentVolume() {
-            _parent.XBMC.Status.Refresh();
-            tbVolumeSysTray.Value = _parent.XBMC.Status.GetVolume();
+            _parent.Xbmc.Status.Refresh();
+            tbVolumeSysTray.Value = _parent.Xbmc.Status.GetVolume();
         }
 
         private void VolumeControlF1_LostFocus(object sender, EventArgs e) {
@@ -69,7 +69,7 @@ namespace XBMControl {
             else
                 Close();
 
-            if (_parent.XBMC.Status.IsMuted()) bMute.BackgroundImage = Resources.button_mute_click;
+            if (_parent.Xbmc.Status.IsMuted()) bMute.BackgroundImage = Resources.button_mute_click;
         }
 
         private void tbVolumeSysTray_MouseDown(object sender, MouseEventArgs e) {
@@ -81,11 +81,11 @@ namespace XBMControl {
         }
 
         private void bMute_Click(object sender, EventArgs e) {
-            _parent.XBMC.Controls.ToggleMute();
+            _parent.Xbmc.Controls.ToggleMute();
         }
 
         private void tbVolumeSysTray_ValueChanged(object sender, EventArgs e) {
-            _parent.XBMC.Controls.SetVolume(tbVolumeSysTray.Value);
+            _parent.Xbmc.Controls.SetVolume(tbVolumeSysTray.Value);
         }
 
         private void bMute_MouseHover(object sender, EventArgs e) {

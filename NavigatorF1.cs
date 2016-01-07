@@ -24,8 +24,8 @@ namespace XBMControl {
         public NavigatorF1(MainForm parentForm) {
             _parent = parentForm;
             InitializeComponent();
-            if (_parent.XBMC.Status.IsConnected())
-                _parent.XBMC.Status.Refresh();
+            if (_parent.Xbmc.Status.IsConnected())
+                _parent.Xbmc.Status.Refresh();
 
             Settings.Default.NavigatorOpened = true;
             Settings.Default.Save();
@@ -38,19 +38,19 @@ namespace XBMControl {
         }
 
         private void bUp_Click(object sender, EventArgs e) {
-            _parent.XBMC.Video.SendAction("3");
+            _parent.Xbmc.Video.SendAction("3");
         }
 
         private void bLeft_Click(object sender, EventArgs e) {
-            _parent.XBMC.Video.SendAction("1");
+            _parent.Xbmc.Video.SendAction("1");
         }
 
         private void bRight_Click(object sender, EventArgs e) {
-            _parent.XBMC.Video.SendAction("2");
+            _parent.Xbmc.Video.SendAction("2");
         }
 
         private void bDown_Click(object sender, EventArgs e) {
-            _parent.XBMC.Video.SendAction("4");
+            _parent.Xbmc.Video.SendAction("4");
         }
 
         //START FAKE DRAG DROP
@@ -75,45 +75,45 @@ namespace XBMControl {
         //END FAKE DRAG DROP
 
         private void bSelect_Click(object sender, EventArgs e) {
-            _parent.XBMC.Video.SendAction("7");
+            _parent.Xbmc.Video.SendAction("7");
         }
 
         private void bUndo_Click_1(object sender, EventArgs e) {
-            _parent.XBMC.Video.SendAction("9");
+            _parent.Xbmc.Video.SendAction("9");
         }
 
         private void NavigatorF1_Load(object sender, EventArgs e) {}
 
         private void bVolDown_Click(object sender, EventArgs e) {
-            _parent.XBMC.Video.SendAction("89");
+            _parent.Xbmc.Video.SendAction("89");
         }
 
         private void bVolUp_Click(object sender, EventArgs e) {
-            _parent.XBMC.Video.SendAction("88");
+            _parent.Xbmc.Video.SendAction("88");
         }
 
         private void bRewind_Click(object sender, EventArgs e) {
-            _parent.XBMC.Video.SendAction("78");
+            _parent.Xbmc.Video.SendAction("78");
         }
 
         private void bStop_Click(object sender, EventArgs e) {
-            _parent.XBMC.Video.SendAction("13");
+            _parent.Xbmc.Video.SendAction("13");
         }
 
         private void bPlayPause_Click(object sender, EventArgs e) {
-            _parent.XBMC.Video.SendAction("12");
+            _parent.Xbmc.Video.SendAction("12");
         }
 
         private void bForward_Click(object sender, EventArgs e) {
-            _parent.XBMC.Video.SendAction("77");
+            _parent.Xbmc.Video.SendAction("77");
         }
 
         private void bHome_Click(object sender, EventArgs e) {
-            _parent.XBMC.Video.SendAction("10");
+            _parent.Xbmc.Video.SendAction("10");
         }
 
         private void bOptions_Click(object sender, EventArgs e) {
-            _parent.XBMC.Video.SendAction("18");
+            _parent.Xbmc.Video.SendAction("18");
         }
 
         private void bClose_Click(object sender, EventArgs e) {
@@ -142,51 +142,51 @@ namespace XBMControl {
         // END CLOSE BUTTON
 
         private void bPrevious_Click(object sender, EventArgs e) {
-            _parent.XBMC.Video.SendAction("15");
+            _parent.Xbmc.Video.SendAction("15");
         }
 
         private void bNext_Click(object sender, EventArgs e) {
-            _parent.XBMC.Video.SendAction("14");
+            _parent.Xbmc.Video.SendAction("14");
         }
 
         private void button1_Click(object sender, EventArgs e) {
-            _parent.XBMC.Video.SendAction("59");
+            _parent.Xbmc.Video.SendAction("59");
         }
 
         private void button2_Click(object sender, EventArgs e) {
-            _parent.XBMC.Video.SendAction("60");
+            _parent.Xbmc.Video.SendAction("60");
         }
 
         private void button3_Click(object sender, EventArgs e) {
-            _parent.XBMC.Video.SendAction("61");
+            _parent.Xbmc.Video.SendAction("61");
         }
 
         private void button4_Click(object sender, EventArgs e) {
-            _parent.XBMC.Video.SendAction("62");
+            _parent.Xbmc.Video.SendAction("62");
         }
 
         private void button5_Click(object sender, EventArgs e) {
-            _parent.XBMC.Video.SendAction("63");
+            _parent.Xbmc.Video.SendAction("63");
         }
 
         private void button6_Click(object sender, EventArgs e) {
-            _parent.XBMC.Video.SendAction("64");
+            _parent.Xbmc.Video.SendAction("64");
         }
 
         private void button7_Click(object sender, EventArgs e) {
-            _parent.XBMC.Video.SendAction("65");
+            _parent.Xbmc.Video.SendAction("65");
         }
 
         private void button8_Click(object sender, EventArgs e) {
-            _parent.XBMC.Video.SendAction("66");
+            _parent.Xbmc.Video.SendAction("66");
         }
 
         private void button9_Click(object sender, EventArgs e) {
-            _parent.XBMC.Video.SendAction("67");
+            _parent.Xbmc.Video.SendAction("67");
         }
 
         private void button0_Click(object sender, EventArgs e) {
-            _parent.XBMC.Video.SendAction("58");
+            _parent.Xbmc.Video.SendAction("58");
         }
     }
 }

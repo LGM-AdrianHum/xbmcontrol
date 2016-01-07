@@ -25,14 +25,14 @@ namespace XBMControl {
         }
 
         private void bClose_Click(object sender, EventArgs e) {
-            _parent.videoInfoOpened = false;
+            _parent.VideoInfoOpened = false;
             Close();
         }
 
         private void FillVideoInfo(string videoId) {
-            _videoInfoList = _parent.XBMC.Video.GetVideoLibraryInfo(videoId);
+            _videoInfoList = _parent.Xbmc.Video.GetVideoLibraryInfo(videoId);
 
-            videoPicture.Image = _parent.XBMC.Video.GetVideoThumb(videoId);
+            videoPicture.Image = _parent.Xbmc.Video.GetVideoThumb(videoId);
             videoName.Text = _videoInfoList[1];
             videoPlot.Text = _videoInfoList[2];
             videoGenre.Text = _videoInfoList[15];
